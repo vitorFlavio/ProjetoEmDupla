@@ -2,9 +2,9 @@
 #include<stdlib.h>
 
 int main(){
-
-    printf("primeiro teste do projeto");
-    printf("segundo teste do projeto");
+/*Projeto em dupla 
+CCF 110-PROGRAMAÇÃO
+*/
    
 
     return 0;
