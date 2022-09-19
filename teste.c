@@ -3,7 +3,7 @@
 
 int main(){
 /*Projeto em dupla 
-CCF 110-PROGRAMAÇÃO
+CCF 110-PROGRAMAÇÃO...
 */
    
 
