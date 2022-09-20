@@ -2,8 +2,10 @@
 #include<stdlib.h>
 
 int main(){
-/*Projeto em dupla 
-CCF 110-PROGRAMAÇÃO...
+/*
+    PROJETO EM DUPLA...
+    CCF 110-PROGRAMAÇÃO...
+
 */
    
 
