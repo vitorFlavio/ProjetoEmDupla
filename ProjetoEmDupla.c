@@ -102,10 +102,11 @@ int main()
         else if (opcao == 2){
 
             // PARTE DA TABUADA
-            int tipo2;
-            float valor1, valor2,resultadoCal = 0;
+            int tipo2,i;
+            float valor1,valor2,resultadoCal=0;
+            int pot=1,valor1p,valor2p;
 
-            printf("Escolha o tipo de operação:\n1.Soma\n2.Subtração\n3.Multiplicação\n4.Divisão\n");
+            printf("Escolha o tipo de operação:\n1.Soma\n2.Subtração\n3.Multiplicação\n4.Divisão\n5.Potenciação\n");
             scanf("%d", &tipo2);
 
             switch (tipo2)
@@ -175,6 +176,36 @@ int main()
 
                 break;
 
+              case 5:
+                
+                printf("PONTENCIAÇÃO:\n");
+                printf("OBS: INFORME UM NUMERO INTEIRO\n");
+                printf("-->");
+                scanf("%d", &valor1p);
+                printf("OBS: INFORME O EXPOENTE UM INTEIRO POSITIVO...\n");
+                printf("elevado a\n");
+                scanf("%d", &valor2p);
+                printf("\n");
+
+                // Realiza a operação de potencia
+                if(valor2p>=0){
+                for(i=1;i<=valor2p;i++){
+
+                    pot*=valor1p;
+
+
+                }
+
+                printf("%d elevado a %d é igual a %d\n",valor1p,valor2p,pot);
+                }else{
+                    printf("ERRO\n");
+                    printf("Essa calculadora só realiza operações com expoente inteiro positivo...\n");
+                }
+
+                break;
+
+
+
             default:
                 break;
             }
@@ -182,6 +213,12 @@ int main()
             // printf("%s deseja realizar nova operação:\n1.Sim\n2.Não\n",nome);
             // scanf("%d",&opcao2);
         }
+        /*else if(opcao==3){
+             
+                IMPLEMENTAÇÃO DE UM MINI GAME...
+
+        }
+        */
 
         printf("...............................................................................................................\n");
     }
