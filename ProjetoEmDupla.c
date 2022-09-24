@@ -156,7 +156,35 @@ int main()
                 // Realiza a operação de multiplicação
                 resultadoCal = valor1 * valor2;
 
+        
                 printf("%4.2fx%4.2f=%4.2f\n", valor1, valor2, resultadoCal);
+
+                
+                printf("Essa multiplicação é a mesma coisa que a soma de:\n");
+
+                 for(i=1;i<valor2;i++){
+
+                    printf("%4.2f+",valor1);
+
+
+                }
+
+                printf("%4.2f que é igual a %4.2f\n",valor1,resultadoCal);
+
+                printf("Comoa a multiplicação é comutativa o oposto também é válido \n");
+
+
+                 for(i=1;i<valor1;i++){
+
+                    printf("%4.2f+",valor2);
+
+
+                }
+
+                printf("%4.2f que é igual a %4.2f\n",valor2,resultadoCal);
+
+
+
 
                 break;
 
