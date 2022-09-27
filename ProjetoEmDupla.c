@@ -1,15 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include<time.h>
+
 
 // Primeira aplicação do projeto...
 
-int main()
-{
+int main(){
 
     // Variaveis
     char nome[99];
     int opcao = 1, valorTabuada, tabuada, i, resultado = 0, tipo, opcao2 = 1;
-    ;
 
     // Interface
     printf("..........PROGRAMA DE OPERAÇÕES............\n");
@@ -19,18 +19,16 @@ int main()
     scanf("%s", nome);
 
     // Gerencia as opções
-    while (opcao != 0)
-    {
+    while (opcao != 0){
 
         // Outras opções seram adicionadas futuramente...
 
-        printf("%s digite uma das opções abaixo:\n1.Tabuada\n2.Calculadora\n0.Sair\n", nome);
+        printf("%s digite uma das opções abaixo:\n1.Tabuada\n2.Calculadora\n3.Mini Game\n0.Sair\n", nome);
         scanf("%d", &opcao);
 
         // parte da tabuada
 
-        if (opcao == 1)
-        {
+        if (opcao == 1){
 
             printf("Informe ate qual valor vc quer a execução da tabuada:\n");
             scanf("%d", &valorTabuada);
@@ -41,14 +39,12 @@ int main()
             printf("Escolha o tipo de operação:\n1.Soma\n2.Subtração\n3.Multiplicação\n4.Divisão\n");
             scanf("%d", &tipo);
 
-            switch (tipo)
-            {
+            switch (tipo){
 
             case 1:
 
                 printf("SOMA.....\n");
-                for (i = 0; i <= valorTabuada; i++)
-                {
+                for (i = 0; i <= valorTabuada; i++){
 
                     resultado = i + tabuada;
 
@@ -59,8 +55,7 @@ int main()
             case 2:
 
                 printf("SUBTRAÇÃO.....\n");
-                for (i = valorTabuada; i >= 0; i--)
-                {
+                for (i = valorTabuada; i >= 0; i--){
 
                     resultado = i - tabuada;
 
@@ -71,8 +66,7 @@ int main()
             case 3:
 
                 printf("MULTIPLICAÇÃO.....\n");
-                for (i = 0; i <= valorTabuada; i++)
-                {
+                for (i = 0; i <= valorTabuada; i++){
 
                     resultado = i * tabuada;
 
@@ -83,8 +77,7 @@ int main()
             case 4:
 
                 printf("Divisão.....\n");
-                for (i = valorTabuada; i >= 0; i--)
-                {
+                for (i = valorTabuada; i >= 0; i--){
 
                     resultado = i / tabuada;
 
@@ -98,19 +91,17 @@ int main()
 
             // printf("%s deseja realizar nova operação:\n1.Sim\n2.Não\n",nome);
             // scanf("%d",&opcao2);
-        }
-        else if (opcao == 2){
+        }else if (opcao == 2){
 
             // PARTE DA TABUADA
-            int tipo2,i;
+            int tipo2,i,resto=0,valor1r=0,valor2r=0,resR=0;
             float valor1,valor2,resultadoCal=0;
             int pot=1,valor1p,valor2p;
 
             printf("Escolha o tipo de operação:\n1.Soma\n2.Subtração\n3.Multiplicação\n4.Divisão\n5.Potenciação\n");
             scanf("%d", &tipo2);
 
-            switch (tipo2)
-            {
+            switch (tipo2){
 
             case 1:
 
@@ -171,7 +162,7 @@ int main()
 
                 printf("%4.2f que é igual a %4.2f\n",valor1,resultadoCal);
 
-                printf("Comoa a multiplicação é comutativa o oposto também é válido \n");
+                printf("Como a multiplicação é comutativa o oposto também é válido \n");
 
 
                  for(i=1;i<valor1;i++){
@@ -197,10 +188,30 @@ int main()
                 scanf("%f", &valor2);
                 printf("\n");
 
-                // Realiza a operação de divisão
-                resultadoCal = valor1 / valor2;
 
-                printf("%4.2f/%4.2f=%4.2f\n", valor1, valor2, resultadoCal);
+                // Realiza a operação de divisão
+                resultadoCal = valor1/valor2;
+
+
+                
+                valor1r=valor1;
+                valor2r=valor2;
+                resR=resultadoCal;
+                resto=valor1r%valor2r;
+                
+                
+
+
+                printf("%4.2f/%4.2f=%4.2f\n", valor1, valor2,resultadoCal);
+                printf("Na divisão vc faz %dx%d\n",resR,valor2r);
+
+
+                if(resto!=0){
+
+                    printf("mais o resto que é %d\n",resto);
+                }
+
+
 
                 break;
 
@@ -241,13 +252,63 @@ int main()
             // printf("%s deseja realizar nova operação:\n1.Sim\n2.Não\n",nome);
             // scanf("%d",&opcao2);
         }
-        /*else if(opcao==3){
+        else if(opcao==3){
              
-                IMPLEMENTAÇÃO DE UM MINI GAME...
+                //IMPLEMENTAÇÃO DE UM MINI GAME...
+
+
+            //variaveis do mini game
+
+            int n,v=100,valorUsu,acertos=0,erros=0;
+
+            printf("Informe a quantidade de tentativas que você quer no mini game\n");
+            scanf("%d",&n);
+
+
+            int valor1mini[n],valor2mini[n],resultado[n];
+
+
+            srand(time(NULL));
+
+            for(i=0;i<n;i++){
+
+            valor1mini[i]=rand()%10;
+            valor2mini[i]=rand()%100;
+
+            }
+
+            for(i=0;i<n;i++){
+
+            printf("Quanto é %d vezes %d\n",valor1mini[i],valor2mini[i]);
+            scanf("%d",&valorUsu);
+
+            resultado[i]=valor1mini[i]*valor2mini[i];
+
+
+
+            if(resultado[i]==valorUsu){
+
+                printf("PARABÉNS VOCÊ ACERTOU!\n");
+
+                acertos++;
+            
+            }else{
+
+                printf("VOCÊ ERROU!!!\n");
+
+                erros++;
+
+            }
+             printf("\n");
+
+            }
+            printf("\n");
+
+            printf("Em %d tentativas você obteve:\n%d acertos\n%d erros\n0",n,acertos,erros);
 
         }
-        */
-
+        
+        printf("\n");
         printf("...............................................................................................................\n");
     }
     return 0;
