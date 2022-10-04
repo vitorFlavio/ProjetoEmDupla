@@ -254,16 +254,23 @@ int main(){
         }
         else if(opcao==3){
              
-                //IMPLEMENTAÇÃO DE UM MINI GAME...
+                /*IMPLEMENTAÇÃO DE UM MINI GAME...
+                
+                No momento só foi adicionado a operação de multiplicação no mini game...
+                Futuramemte pretende adicionar para as outras operações também...
+
+                */
+            
 
 
             //variaveis do mini game
 
-            int n,v=100,valorUsu,acertos=0,erros=0;
+            int n,v=10,valorUsu,acertos=0,erros=0;
 
             printf("Informe a quantidade de tentativas que você quer no mini game\n");
             scanf("%d",&n);
-
+            printf("Informe ate qual valor vc deseja nas operações\n");
+            scanf("%d",&v);
 
             int valor1mini[n],valor2mini[n],resultado[n];
 
@@ -272,8 +279,8 @@ int main(){
 
             for(i=0;i<n;i++){
 
-            valor1mini[i]=rand()%10;
-            valor2mini[i]=rand()%100;
+            valor1mini[i]=rand()%v;
+            valor2mini[i]=rand()%v;
 
             }
 
@@ -295,6 +302,8 @@ int main(){
             }else{
 
                 printf("VOCÊ ERROU!!!\n");
+                printf("A resposta correta era %d",resultado[i]);
+
 
                 erros++;
 
