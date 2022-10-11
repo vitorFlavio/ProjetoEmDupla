@@ -266,17 +266,72 @@ int main(){
 
             //variaveis do mini game
 
-            int n,v=10,valorUsu,acertos=0,erros=0;
+            int n,v=10,valorUsu,acertos=0,erros=0,tipo3;
+            int valor1mini[n],valor2mini[n],resultado[n];
 
             printf("Informe a quantidade de tentativas que você quer no mini game\n");
             scanf("%d",&n);
             printf("Informe ate qual valor vc deseja nas operações\n");
             scanf("%d",&v);
 
-            int valor1mini[n],valor2mini[n],resultado[n];
-
+            
 
             srand(time(NULL));
+
+
+            switch (tipo3){
+
+            case 1:
+
+
+                // realiza a operação de soma
+
+             
+                break;
+
+            case 2:
+
+
+                //realiza a subtração
+
+              
+                break;
+
+
+            case 3:
+
+               
+                // Realiza a operação de multiplicação
+                
+
+
+
+
+                break;
+
+            case 4:
+
+               
+
+
+                // Realiza a operação de divisão
+             
+                
+
+                break;
+
+
+
+            default:
+                break;
+            }
+
+
+
+
+
+
+            
 
             for(i=0;i<n;i++){
 
