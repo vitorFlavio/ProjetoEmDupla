@@ -26,7 +26,7 @@ int main(){
         printf("%s digite uma das opções abaixo:\n1.Tabuada\n2.Calculadora\n3.Mini Game\n0.Sair\n", nome);
         scanf("%d", &opcao);
 
-        // parte da tabuada
+        //PARTE DA TABUADA:
 
         if (opcao == 1){
 
@@ -93,7 +93,8 @@ int main(){
             // scanf("%d",&opcao2);
         }else if (opcao == 2){
 
-            // PARTE DA TABUADA
+            // PARTE DA CALCULADORA:
+
             int tipo2,i,resto=0,valor1r=0,valor2r=0,resR=0;
             float valor1,valor2,resultadoCal=0;
             int pot=1,valor1p,valor2p;
