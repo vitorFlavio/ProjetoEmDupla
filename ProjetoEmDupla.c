@@ -335,8 +335,6 @@ int main(){
                 //realiza a subtração
 
 
-                   
-
             for(i=0;i<n;i++){
 
             valor1mini[i]=rand()%v;
