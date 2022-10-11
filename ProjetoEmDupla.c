@@ -273,6 +273,9 @@ int main(){
             scanf("%d",&n);
             printf("Informe ate qual valor vc deseja nas operações\n");
             scanf("%d",&v);
+            printf("Informe o tipo de operação você deseja realizar\n");
+            printf("1.Soma\n2.Subtração\n3.Multiplicação\n4.Divisão\n");
+            scanf("%d",&tipo3);
 
             
 
@@ -285,6 +288,43 @@ int main(){
 
 
                 // realiza a operação de soma
+
+                   
+
+            for(i=0;i<n;i++){
+
+            valor1mini[i]=rand()%v;
+            valor2mini[i]=rand()%v;
+
+            }
+
+            for(i=0;i<n;i++){
+
+            printf("Quanto é %d mais %d\n",valor1mini[i],valor2mini[i]);
+            scanf("%d",&valorUsu);
+
+            resultado[i]=valor1mini[i]+valor2mini[i];
+
+
+
+            if(resultado[i]==valorUsu){
+
+                printf("PARABÉNS VOCÊ ACERTOU!\n");
+
+                acertos++;
+            
+            }else{
+
+                printf("VOCÊ ERROU!!!\n");
+                printf("A resposta correta era %d",resultado[i]);
+
+
+                erros++;
+
+            }
+             printf("\n");
+
+            }
 
              
                 break;
@@ -311,9 +351,7 @@ int main(){
 
             case 4:
 
-               
-
-
+        
                 // Realiza a operação de divisão
              
                 
@@ -331,7 +369,7 @@ int main(){
 
 
 
-            
+            /*
 
             for(i=0;i<n;i++){
 
@@ -366,7 +404,7 @@ int main(){
             }
              printf("\n");
 
-            }
+            }*/
             printf("\n");
 
             printf("Em %d tentativas você obteve:\n%d acertos\n%d erros\n0",n,acertos,erros);
