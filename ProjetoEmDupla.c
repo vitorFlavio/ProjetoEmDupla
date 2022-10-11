@@ -300,7 +300,7 @@ int main(){
 
             for(i=0;i<n;i++){
 
-            printf("Quanto é %d mais %d\n",valor1mini[i],valor2mini[i]);
+            printf("Quanto é %d mais %d ?\n",valor1mini[i],valor2mini[i]);
             scanf("%d",&valorUsu);
 
             resultado[i]=valor1mini[i]+valor2mini[i];
@@ -334,6 +334,44 @@ int main(){
 
                 //realiza a subtração
 
+
+                   
+
+            for(i=0;i<n;i++){
+
+            valor1mini[i]=rand()%v;
+            valor2mini[i]=rand()%v;
+
+            }
+
+            for(i=0;i<n;i++){
+
+            printf("Quanto é %d menos %d ?\n",valor1mini[i],valor2mini[i]);
+            scanf("%d",&valorUsu);
+
+            resultado[i]=valor1mini[i]-valor2mini[i];
+
+
+
+            if(resultado[i]==valorUsu){
+
+                printf("PARABÉNS VOCÊ ACERTOU!\n");
+
+                acertos++;
+            
+            }else{
+
+                printf("VOCÊ ERROU!!!\n");
+                printf("A resposta correta era %d",resultado[i]);
+
+
+                erros++;
+
+            }
+             printf("\n");
+
+            }
+
               
                 break;
 
@@ -342,6 +380,44 @@ int main(){
 
                
                 // Realiza a operação de multiplicação
+
+
+                   
+
+            for(i=0;i<n;i++){
+
+            valor1mini[i]=rand()%v;
+            valor2mini[i]=rand()%v;
+
+            }
+
+            for(i=0;i<n;i++){
+
+            printf("Quanto é %d vezes %d\n",valor1mini[i],valor2mini[i]);
+            scanf("%d",&valorUsu);
+
+            resultado[i]=valor1mini[i]*valor2mini[i];
+
+
+
+            if(resultado[i]==valorUsu){
+
+                printf("PARABÉNS VOCÊ ACERTOU!\n");
+
+                acertos++;
+            
+            }else{
+
+                printf("VOCÊ ERROU!!!\n");
+                printf("A resposta correta era %d",resultado[i]);
+
+
+                erros++;
+
+            }
+             printf("\n");
+
+            }
                 
 
 
@@ -353,6 +429,8 @@ int main(){
 
         
                 // Realiza a operação de divisão
+
+                
              
                 
 
