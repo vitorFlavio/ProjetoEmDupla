@@ -98,6 +98,7 @@ int main()
 
             // printf("%s deseja realizar nova operação:\n1.Sim\n2.Não\n",nome);
             // scanf("%d",&opcao2);
+            
         }
         else if (opcao == 2)
         {
@@ -381,7 +382,7 @@ int main()
                     }
                     else
                     {
-
+                        printf("\n");
                         printf("VOCÊ ERROU!!!\n");
                         printf("A resposta correta era %d", resultado[i]);
 
