@@ -9,7 +9,7 @@ int main()
 
     // Variaveis
     char nome[99];
-    int opcao, i;
+    int opcao = 1, i;
 
     // Interface
     printf("=============================================================================================================\n");
@@ -21,17 +21,19 @@ int main()
     scanf("%s", nome);
     system("clear");
     printf("=============================================================================================================\n");
+    printf("\n");
+
+    printf("%s digite uma das opções abaixo:\n1.Tabuada\n2.Calculadora\n3.Mini Game\n0.Sair\n", nome);
+    printf("=============================================================================================================\n");
+    scanf("%d", &opcao);
+    system("clear");
+
     // Gerencia as opções
     while (opcao != 0)
     {
         int opcao2 = 1;
 
         // Outras opções seram adicionadas futuramente...
-
-        printf("%s digite uma das opções abaixo:\n1.Tabuada\n2.Calculadora\n3.Mini Game\n0.Sair\n", nome);
-        printf("=============================================================================================================\n");
-        scanf("%d", &opcao);
-        system("clear");
 
         if (opcao == 1)
         {
@@ -130,11 +132,11 @@ int main()
                 }
             }
         }
-        else if (opcao == 2)
+        if (opcao == 2)
         {
 
-            while (opcao2 == 1)
-            {
+           // while (opcao2 == 1)
+           //{
                 // PARTE DA CALCULADORA:
                 printf("#####################################################################################################\n");
                 // variaveis calculaddora
@@ -273,15 +275,19 @@ int main()
                 default:
                     break;
                 }
-                printf("\n\n");
-                printf("...........................................................................................................................\n");
-                printf("%s deseja realizar nova operação?\nPra sim digite 1.\nDigite qualquer outro valor para sair.\n", nome);
-                printf("...........................................................................................................................\n");
-                scanf("%d", &opcao2);
-                system("clear");
-            }
+               // printf("\n\n");
+                //printf("...........................................................................................................................\n");
+                //printf("%s deseja realizar nova operação?\nPra sim digite 1.\nDigite qualquer outro valor para sair.\n", nome);
+                //printf("...........................................................................................................................\n");
+                //scanf("%d", &opcao2);
+                //system("clear");
+               // if (opcao2 != 1)
+                //{
+                   // break;
+                //}
+           // }
         }
-        else if (opcao == 3)
+        if (opcao == 3)
         {
 
             while (opcao2 == 1)
@@ -453,11 +459,23 @@ int main()
                 printf("...........................................................................................................................\n");
                 scanf("%d", &opcao2);
                 system("clear");
+
+                if (opcao2 != 1)
+                {
+                    break;
+                }
             }
         }
+        opcao2 = 1;
 
         printf("\n");
         printf("=============================================================================================================\n");
+        printf("%s digite uma das opções abaixo:\n1.Tabuada\n2.Calculadora\n3.Mini Game\n0.Sair\n", nome);
+        printf("=============================================================================================================\n");
+        scanf("%d", &opcao);
+        system("clear");
+        printf("=============================================================================================================\n");
     }
+
     return 0;
 }
