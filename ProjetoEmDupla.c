@@ -9,62 +9,76 @@ int main()
 
     // Variaveis
     char nome[99];
-    int opcao = 1, valorTabuada, tabuada, i, resultado = 0, tipo, opcao2 = 1;
+    int opcao,i;  
 
     // Interface
-    printf("..........PROGRAMA DE OPERAÇÕES............\n");
-    printf("................BEM VINDO...................\n");
+    printf("=============================================================================================================\n");
+    printf("..............................................PROGRAMA DE OPERAÇÕES.........................................\n");
+    printf("...................................................BEM VINDO................................................\n");
+    printf("=============================================================================================================\n");
 
     printf("Qual o seu nome?\n");
-    scanf("%s", nome);
-
+    scanf("%s",nome);
+    system("clear");
+    printf("=============================================================================================================\n");
     // Gerencia as opções
     while (opcao != 0)
     {
+        int opcao2=1;
 
         // Outras opções seram adicionadas futuramente...
 
         printf("%s digite uma das opções abaixo:\n1.Tabuada\n2.Calculadora\n3.Mini Game\n0.Sair\n", nome);
+        printf("=============================================================================================================\n");
         scanf("%d", &opcao);
-
-        // PARTE DA TABUADA:
+        system("clear");
+        
+         
 
         if (opcao == 1)
         {
+            // PARTE DA TABUADA
+          while(opcao2==1){ 
 
+            int valorTabuada, tabuada,resultado = 0, tipo, opcao2 = 1;
+            printf("=============================================================================================================\n");
             printf("Informe ate qual valor vc quer a execução da tabuada:\n");
             scanf("%d", &valorTabuada);
 
             printf("Informe a tabuada:\n");
             scanf("%d", &tabuada);
 
-            printf("Escolha o tipo de operação:\n1.Soma\n2.Subtração\n3.Multiplicação\n4.Divisão\n");
+            printf("Escolha o tipo de operação:\n1.Soma.\n2.Subtração.\n3.Multiplicação.\n4.Divisão.\n");
+            printf("=============================================================================================================\n");
             scanf("%d", &tipo);
+
 
             switch (tipo)
             {
 
             case 1:
 
-                printf("SOMA.....\n");
+                printf("....................TABUADA DA SOMA DO %d............................\n",tabuada);
                 for (i = 0; i <= valorTabuada; i++)
                 {
 
                     resultado = i + tabuada;
-
-                    printf("%d+%d=%d\n", i, tabuada, resultado);
+                    printf("|");
+                    printf(" %d + %d = %d", i, tabuada, resultado);
+                    printf("|\n");
+                    
                 }
                 break;
 
             case 2:
 
-                printf("SUBTRAÇÃO.....\n");
+                printf("....................TABUADA DA SUBTRAÇÃO DO %d............................\n",tabuada);
                 for (i = valorTabuada; i >= 0; i--)
                 {
 
                     resultado = i - tabuada;
-
-                    printf("%d-%d=%d\n", i, tabuada, resultado);
+                    
+                    printf(" %d - %d = %d\n", i, tabuada, resultado);
                 }
                 break;
 
@@ -95,9 +109,16 @@ int main()
             default:
                 break;
             }
+            printf("\n\n");
 
-            // printf("%s deseja realizar nova operação:\n1.Sim\n2.Não\n",nome);
-            // scanf("%d",&opcao2);
+             printf("%s deseja realizar nova operação:\n1.Sim\n",nome);
+             scanf("%d",&opcao2);
+             system("clear");
+             
+             if(opcao2!=1){
+                break;
+             }
+          }
             
         }
         else if (opcao == 2)
@@ -289,11 +310,12 @@ int main()
 
                 for (i = 0; i < n; i++)
                 {
+                    resultado[i] = valor1mini[i] + valor2mini[i];
 
                     printf("Quanto é %d mais %d ?\n", valor1mini[i], valor2mini[i]);
                     scanf("%d", &valorUsu);
 
-                    resultado[i] = valor1mini[i] + valor2mini[i];
+                    
 
                     if (resultado[i] == valorUsu)
                     {
@@ -403,7 +425,7 @@ int main()
         }
 
         printf("\n");
-        printf("...............................................................................................................\n");
+        printf("=============================================================================================================\n");
     }
     return 0;
 }
