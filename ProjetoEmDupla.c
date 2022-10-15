@@ -58,7 +58,7 @@ int main()
 
             case 1:
 
-                printf("....................TABUADA DA SOMA DO %d............................\n",tabuada);
+                printf("__________________________TABUADA DA SOMA DO %d________________________________\n",tabuada);
                 for (i = 0; i <= valorTabuada; i++)
                 {
 
@@ -72,25 +72,28 @@ int main()
 
             case 2:
 
-                printf("....................TABUADA DA SUBTRAÇÃO DO %d............................\n",tabuada);
+                printf("__________________________TABUADA DA SUBTRAÇÃO DO %d________________________________\n",tabuada);
                 for (i = valorTabuada; i >= 0; i--)
                 {
 
                     resultado = i - tabuada;
-                    
-                    printf(" %d - %d = %d\n", i, tabuada, resultado);
+
+                    printf("|");
+                    printf(" %d - %d = %d", i, tabuada, resultado);
+                    printf("|\n");
                 }
                 break;
 
             case 3:
 
-                printf("MULTIPLICAÇÃO.....\n");
+                printf("__________________________TABUADA DA MULTIPLICAÇÃO DO %d________________________________\n",tabuada);
                 for (i = 0; i <= valorTabuada; i++)
                 {
 
                     resultado = i * tabuada;
-
-                    printf("%dx%d=%d\n", i, tabuada, resultado);
+                    printf("|");
+                    printf(" %d x %d = %d", i, tabuada, resultado);
+                    printf("|\n");
                 }
                 break;
 
