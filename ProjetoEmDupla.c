@@ -120,7 +120,7 @@ int main()
                 }
 
                 printf("\n\n");
-                printf("%s deseja realizar nova operação:\n1.Sim\nPra sair digite qualquer outro valor\n", nome);
+                printf("%s deseja informar uma nova tabuada?:\nPra sim digite 1.\nPra sair digite qualquer outro valor\n", nome);
                 scanf("%d", &opcao2);
                 system("clear");
 
@@ -135,13 +135,14 @@ int main()
 
             while(opcao2==1){
             // PARTE DA CALCULADORA:
-
+            printf("#####################################################################################################\n");
             //variaveis calculaddora
             int tipo2, i, resto = 0, valor1r = 0, valor2r = 0, resR = 0;
             float valor1, valor2, resultadoCal = 0;
             int pot = 1, valor1p, valor2p;
 
             printf("Escolha o tipo de operação:\n1.Soma\n2.Subtração\n3.Multiplicação\n4.Divisão\n5.Potenciação\n");
+            printf("#####################################################################################################\n");
             scanf("%d", &tipo2);
 
             switch (tipo2)
@@ -161,7 +162,7 @@ int main()
                 // realiza a operação de soma
                 resultadoCal = valor1 + valor2;
 
-                printf(">>> %.2f + %.2f= %.2f\n", valor1, valor2, resultadoCal);
+                printf(">>> %.2f + %.2f = %.2f\n", valor1, valor2, resultadoCal);
 
                 break;
 
@@ -187,35 +188,37 @@ int main()
                 printf("-->");
                 scanf("%f", &valor1);
                 printf("vezes\n");
+                printf("-->");
                 scanf("%f", &valor2);
                 printf("\n");
 
                 // Realiza a operação de multiplicação
                 resultadoCal = valor1 * valor2;
 
-                printf("%4.2fx%4.2f=%4.2f\n", valor1, valor2, resultadoCal);
+                printf(">>> %.2f x %.2f = %.2f\n", valor1, valor2, resultadoCal);
                 printf("\n");
+                printf("#########################################################################################\n");
                 printf("OBS:\n");
                 printf("Essa multiplicação é a mesma coisa que a soma de:\n");
 
                 for (i = 1; i < valor2; i++)
                 {
 
-                    printf("%4.2f+", valor1);
+                    printf(" %.2f + ", valor1);
                 }
 
-                printf("%4.2f que é igual a %4.2f\n", valor1, resultadoCal);
+                printf("%.2f que é igual a %.2f\n", valor1, resultadoCal);
 
-                printf("Como a multiplicação é comutativa o oposto também é válido \n");
+                printf("Como a multiplicação é comutativa o oposto também é válido: \n");
 
                 for (i = 1; i < valor1; i++)
                 {
 
-                    printf("%4.2f+", valor2);
+                    printf(" %.2f + ", valor2);
                 }
 
-                printf("%4.2f que é igual a %4.2f\n", valor2, resultadoCal);
-
+                printf("%.2f que é igual a %.2f\n", valor2, resultadoCal);
+                printf("#########################################################################################\n");
                 break;
 
             case 4:
@@ -280,8 +283,11 @@ int main()
                 break;
             }
             printf("\n\n");
-            printf("%s deseja realizar nova operação:\n1.Sim.\nDigite qualquer outro valor para saur.\n",nome);
+            printf("...........................................................................................................................\n");
+            printf("%s deseja realizar nova operação:\nPra sim digite 1.\nDigite qualquer outro valor para sair.\n",nome);
+             printf("...........................................................................................................................\n");
             scanf("%d",&opcao2);
+            system("clear");
             }
         }
         else if (opcao == 3)
