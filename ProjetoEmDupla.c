@@ -291,17 +291,20 @@ int main()
 
             int n, v = 10, valorUsu, acertos = 0, erros = 0, tipo3;
             int valor1mini[n], valor2mini[n], resultado[n];
-
+            printf("######################################################################################################################\n");
             printf("Informe a quantidade de tentativas que você quer no mini game\n");
             scanf("%d", &n);
             printf("Informe ate qual valor vc deseja nas operações\n");
             scanf("%d", &v);
+            printf("\n");
             printf("Informe o tipo de operação você deseja realizar\n");
-            printf("1.Soma\n2.Subtração\n3.Multiplicação\n");
+            printf("1.Soma.\n2.Subtração.\n3.Multiplicação.\n");
+            printf("######################################################################################################################\n");
             scanf("%d", &tipo3);
+            system("clear");
 
             srand(time(NULL));
-
+            printf("::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::\n");
             switch (tipo3)
             {
 
@@ -320,21 +323,25 @@ int main()
                 {
                     resultado[i] = valor1mini[i] + valor2mini[i];
 
-                    printf("Quanto é %d mais %d ?\n", valor1mini[i], valor2mini[i]);
+                    printf(">> Quanto é %d mais %d ?\n", valor1mini[i], valor2mini[i]);
+                    printf("Sua resposta: ");
                     scanf("%d", &valorUsu);
 
                     if (resultado[i] == valorUsu)
                     {
-
-                        printf("PARABÉNS VOCÊ ACERTOU!\n");
-
+                        printf("\n");
+                        printf("PARABÉNS VOCÊ ACERTOU!!! :)\n");
+                        printf("\n");
+                        printf("::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::\n");
                         acertos++;
                     }
                     else
                     {
-
-                        printf("VOCÊ ERROU!!!\n");
+                        printf("\n");
+                        printf("VOCÊ ERROU :(\n\n");
                         printf("A resposta correta era %d", resultado[i]);
+                        printf("\n");
+                         printf("::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::\n");
 
                         erros++;
                     }
@@ -357,7 +364,7 @@ int main()
                 for (i = 0; i < n; i++)
                 {
 
-                    printf("Quanto é %d menos %d ?\n", valor1mini[i], valor2mini[i]);
+                    printf(">> Quanto é %d menos %d ?\n", valor1mini[i], valor2mini[i]);
                     scanf("%d", &valorUsu);
 
                     resultado[i] = valor1mini[i] - valor2mini[i];
@@ -396,7 +403,7 @@ int main()
                 for (i = 0; i < n; i++)
                 {
 
-                    printf("Quanto é %d vezes %d ?\n", valor1mini[i], valor2mini[i]);
+                    printf(">> Quanto é %d vezes %d ?\n", valor1mini[i], valor2mini[i]);
                     scanf("%d", &valorUsu);
 
                     resultado[i] = valor1mini[i] * valor2mini[i];
@@ -424,11 +431,13 @@ int main()
             default:
                 break;
             }
-
+            printf(":::::::::::::::::::::::::::::::::::::   PLACAR   ::::::::::::::::::::::::::::::::::::::::::::::\n");
             printf("\n");
 
             printf("Em %d tentativas você obteve:\n%d acertos\n%d erros\n0", n, acertos, erros);
+            printf("\n:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::\n");
         }
+        
 
         printf("\n");
         printf("=============================================================================================================\n");
