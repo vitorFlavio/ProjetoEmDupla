@@ -6,7 +6,7 @@
 
 ❄️Objetivos: Desenvolver um software com o conhecimento adquirido na disciplina de programação, para realizar operações matemáticas entre outras funcionalidades...
 
-1° Parte concluida.
+1° Parte concluida...
 
 
 
