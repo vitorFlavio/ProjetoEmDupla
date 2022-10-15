@@ -134,14 +134,14 @@ int main()
         }
         if (opcao == 2)
         {
-            int opcaoCal = 1;
+
             // complito desse wlhile com o terceiro if...
-            // while (opcaoCal == 1)
-            //{
+             while (opcao2 == 1)
+            {
             //  PARTE DA CALCULADORA:
             printf("#####################################################################################################\n");
             // variaveis calculaddora
-            int tipo2, i, resto = 0, valor1r = 0, valor2r = 0, resR = 0;
+            int tipo2, i, resto = 0, valor1r = 0, valor2r = 0, resR = 0,opcao2=1;
             float valor1, valor2, resultadoCal = 0;
             int pot = 1, valor1p, valor2p;
 
@@ -184,6 +184,7 @@ int main()
                 resultadoCal = valor1 - valor2;
 
                 printf(">>> %.2f - %.2f = %.2f\n", valor1, valor2, resultadoCal);
+
                 break;
 
             case 3:
@@ -223,6 +224,7 @@ int main()
 
                 printf("%.2f que é igual a %.2f\n", valor2, resultadoCal);
                 printf("#########################################################################################\n");
+
                 break;
 
             case 4:
@@ -276,17 +278,18 @@ int main()
             default:
                 break;
             }
-            // printf("\n\n");
-            // printf("...........................................................................................................................\n");
-            // printf("%s deseja realizar nova operação?\nPra sim digite 1.\nDigite qualquer outro valor para sair.\n", nome);
-            // printf("...........................................................................................................................\n");
-            // scanf("%d", &opcaoCal);
-            // system("clear");
-            // if (opcaoCal != 1)
-            // {
-            //    break;
-            //}
-            // }
+
+            printf("\n\n");
+            printf("...........................................................................................................................\n");
+             printf("%s deseja realizar nova operação?\nPra sim digite 1.\nDigite qualquer outro valor para sair.\n", nome);
+             printf("...........................................................................................................................\n");
+             scanf("%d", &opcao2);
+             system("clear");
+             if (opcao2 != 1)
+             {
+                break;
+            }
+             }
         }
         if (opcao == 3)
         {
@@ -297,7 +300,7 @@ int main()
 
                 // variaveis do mini game
 
-                int n, v = 10, valorUsu, acertos = 0, erros = 0, tipo3;
+                int n, v = 10, valorUsu, acertos = 0, erros = 0, tipo3,opcao2=1;
                 int valor1mini[n], valor2mini[n], resultado[n];
                 printf("######################################################################################################################\n");
                 printf("Informe a quantidade de tentativas que você quer no mini game\n");
