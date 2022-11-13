@@ -2,8 +2,6 @@
 #include <stdlib.h>
 #include <time.h>
 
-// Primeira aplicação do projeto...
-
 int main()
 {
 
