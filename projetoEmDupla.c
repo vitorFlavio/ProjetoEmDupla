@@ -451,6 +451,7 @@ int main()
                 default:
                     break;
                 }
+
                 system("clear");
                 printf(":::::::::::::::::::::::::::::::::::::   PLACAR   ::::::::::::::::::::::::::::::::::::::::::::::\n");
                 printf("\n");
@@ -477,7 +478,7 @@ int main()
             {
 
                 int linhaA, colunaA, linhaB, colunaB, i, j, k;
-                int opcao2=1;
+                int opcao2 = 1;
 
                 printf("######################################################################################################################\n");
                 printf("Informe a quntidade de linhas da matriz A : ");
@@ -500,22 +501,20 @@ int main()
                     {
                         for (j = 0; j < colunaA; j++)
                         {
-                            printf("\n\n Informe o valor da %d Linha e da %d Coluna da Matriz A: ", i + 1,j + 1);
+                            printf("\n\n Informe o valor da %d Linha e da %d Coluna da Matriz A: ", i + 1, j + 1);
                             scanf("%f", &matrizA[i][j]);
                         }
-                        
                     }
-                    
+
                     printf("\n\n");
 
                     for (i = 0; i < linhaB; i++)
                     {
                         for (j = 0; j < colunaB; j++)
                         {
-                            printf("\n\n Informe o valor da %d Linha e da %d Coluna da  Matriz B: ", i + 1,j + 1);
+                            printf("\n\n Informe o valor da %d Linha e da %d Coluna da  Matriz B: ", i + 1, j + 1);
                             scanf("%f", &matrizB[i][j]);
                         }
-                       
                     }
                     printf("::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::\n");
                     system("clear");
@@ -587,7 +586,6 @@ int main()
                 }
             }
         }
-
 
         printf("\n");
         printf("=============================================================================================================\n");
