@@ -65,9 +65,9 @@ int main()
                     {
 
                         resultado = i + tabuada;
-                        printf("|");
+                        printf("|\t");
                         printf(" %d + %d = %d", i, tabuada, resultado);
-                        printf("|\n");
+                        printf("\t|\n");
                     }
                     break;
 
@@ -79,9 +79,9 @@ int main()
 
                         resultado = i - tabuada;
 
-                        printf("|");
+                        printf("|\t");
                         printf(" %d - %d = %d", i, tabuada, resultado);
-                        printf("|\n");
+                        printf("\t|\n");
                     }
                     break;
 
@@ -92,9 +92,9 @@ int main()
                     {
 
                         resultado = i * tabuada;
-                        printf("|");
+                        printf("|\t");
                         printf(" %d x %d = %d", i, tabuada, resultado);
-                        printf("|\n");
+                        printf("\t|\n");
                     }
                     break;
 
@@ -108,9 +108,9 @@ int main()
 
                         if (i % tabuada == 0)
                         {
-                            printf("|");
+                            printf("|\t");
                             printf(" %d : %d = %.0f", i, tabuada, resultadoD);
-                            printf("|\n");
+                            printf("\t|\n");
                         }
                     }
                     break;
