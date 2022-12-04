@@ -5,6 +5,7 @@
 
 float soma(float valor1, float valor2);
 float subtracao(float valor1, float valor2);
+float multiplicacao(float valor1, float valor2);
 
 void main()
 {
@@ -103,10 +104,12 @@ void main()
                     printf("__________________________TABUADA DA MULTIPLICAÇÃO DO %d________________________________\n", tabuada);
                     for (i = 0; i <= valorTabuada; i++)
                     {
+                        valor1 = i;
+                        valor2 = tabuada;
 
-                        resultado = i * tabuada;
+                        resultado = multiplicacao(valor1, valor2);
                         printf("|\t");
-                        printf(" %d x %d = %d", i, tabuada, resultado);
+                        printf(" %.0f x %0.f = %.0f", valor1, valor2, resultado);
                         printf("\t|\n");
                     }
                     break;
@@ -618,4 +621,9 @@ float soma(float valor1, float valor2)
 float subtracao(float valor1, float valor2)
 {
     return valor1 - valor2;
+}
+
+float multiplicacao(float valor1, float valor2)
+{
+    return valor1 * valor2;
 }
