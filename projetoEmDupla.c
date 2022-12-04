@@ -6,6 +6,7 @@
 float soma(float valor1, float valor2);
 float subtracao(float valor1, float valor2);
 float multiplicacao(float valor1, float valor2);
+float divisao(float valor1, float valor2);
 
 void main()
 {
@@ -59,8 +60,6 @@ void main()
                 printf("Escolha o tipo de operação:\n1.Soma.\n2.Subtração.\n3.Multiplicação.\n4.Divisão.\n");
                 printf("=============================================================================================================\n");
                 scanf("%d", &tipo);
-
-                float resultadoD = 0;
 
                 switch (tipo)
                 {
@@ -119,13 +118,15 @@ void main()
                     printf("__________________________TABUADA DA DIVISÃO INTEIRA DO %d________________________________\n", tabuada);
                     for (i = valorTabuada; i >= 0; i--)
                     {
+                        valor1 = i;
+                        valor2 = tabuada;
 
-                        resultadoD = (float)i / (float)tabuada;
+                        resultado = divisao(valor1, valor2);
 
                         if (i % tabuada == 0)
                         {
                             printf("|\t");
-                            printf(" %d : %d = %.0f", i, tabuada, resultadoD);
+                            printf(" %.0f : %.0f = %.0f", valor1, valor2, resultado);
                             printf("\t|\n");
                         }
                     }
@@ -626,4 +627,9 @@ float subtracao(float valor1, float valor2)
 float multiplicacao(float valor1, float valor2)
 {
     return valor1 * valor2;
+}
+
+float divisao(float valor1, float valor2)
+{
+    return valor1 / valor2;
 }
