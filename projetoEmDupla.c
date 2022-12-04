@@ -1,8 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <string.h>
 
-int main()
+float soma(float valor1, float valor2);
+float subtracao(float valor1, float valor2);
+
+void main()
 {
 
     // Variaveis
@@ -16,7 +20,8 @@ int main()
     printf("=============================================================================================================\n");
 
     printf("Qual o seu nome?\n");
-    scanf("%s", nome);
+    scanf(" %[^\n]s", &nome);
+    fflush(stdin);
     system("clear");
     printf("=============================================================================================================\n");
     printf("\n");
@@ -39,7 +44,10 @@ int main()
             while (opcao2 == 1)
             {
 
-                int valorTabuada, tabuada, resultado = 0, tipo, opcao2 = 1;
+                int valorTabuada, tabuada, tipo, opcao2 = 1;
+                float resultado;
+                float valor1 = 0, valor2 = 0;
+
                 printf("=============================================================================================================\n");
                 printf("Informe ate qual valor vc quer a execução da tabuada:\n");
                 scanf("%d", &valorTabuada);
@@ -59,14 +67,19 @@ int main()
                 case 1:
 
                     printf("__________________________TABUADA DA SOMA DO %d________________________________\n", tabuada);
+
                     for (i = 0; i <= valorTabuada; i++)
                     {
+                        valor1 = i;
+                        valor2 = tabuada;
 
-                        resultado = i + tabuada;
+                        resultado = soma(valor1, valor2);
+
                         printf("|\t");
-                        printf(" %d + %d = %d", i, tabuada, resultado);
+                        printf(" %.0f + %.0f = %.0f", valor1, valor2, resultado);
                         printf("\t|\n");
                     }
+
                     break;
 
                 case 2:
@@ -74,11 +87,13 @@ int main()
                     printf("__________________________TABUADA DA SUBTRAÇÃO DO %d________________________________\n", tabuada);
                     for (i = valorTabuada; i >= 0; i--)
                     {
+                        valor1 = i;
+                        valor2 = tabuada;
 
-                        resultado = i - tabuada;
+                        resultado = subtracao(valor1, valor2);
 
                         printf("|\t");
-                        printf(" %d - %d = %d", i, tabuada, resultado);
+                        printf(" %.0f - %.0f = %.0f", valor1, valor2, resultado);
                         printf("\t|\n");
                     }
                     break;
@@ -454,7 +469,7 @@ int main()
                 printf(":::::::::::::::::::::::::::::::::::::   PLACAR   ::::::::::::::::::::::::::::::::::::::::::::::\n");
                 printf("\n");
 
-                printf("Em %d tentativas você obteve:\n%d acertos\n%d erros\n0", n, acertos, erros);
+                printf("Em %d tentativas você obteve:\n%d acertos\n%d erros\n", n, acertos, erros);
                 printf("\n:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::\n");
 
                 printf("\n\n");
@@ -593,6 +608,14 @@ int main()
         system("clear");
         printf("=============================================================================================================\n");
     }
+}
 
-    return 0;
+float soma(float valor1, float valor2)
+{
+    return valor1 + valor2;
+}
+
+float subtracao(float valor1, float valor2)
+{
+    return valor1 - valor2;
 }
