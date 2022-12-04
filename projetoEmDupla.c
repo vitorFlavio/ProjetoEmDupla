@@ -7,6 +7,7 @@ float soma(float valor1, float valor2);
 float subtracao(float valor1, float valor2);
 float multiplicacao(float valor1, float valor2);
 float divisao(float valor1, float valor2);
+int potencia(float valor1, float valor2);
 
 void main()
 {
@@ -46,8 +47,8 @@ void main()
             while (opcao2 == 1)
             {
 
-                int valorTabuada, tabuada, tipo, opcao2 = 1;
-                float resultado;
+                int valorTabuada, tabuada, tipoTab, opcao2 = 1;
+                float resultadoTab;
                 float valor1 = 0, valor2 = 0;
 
                 printf("=============================================================================================================\n");
@@ -59,9 +60,9 @@ void main()
 
                 printf("Escolha o tipo de operação:\n1.Soma.\n2.Subtração.\n3.Multiplicação.\n4.Divisão.\n");
                 printf("=============================================================================================================\n");
-                scanf("%d", &tipo);
+                scanf("%d", &tipoTab);
 
-                switch (tipo)
+                switch (tipoTab)
                 {
 
                 case 1:
@@ -73,10 +74,10 @@ void main()
                         valor1 = i;
                         valor2 = tabuada;
 
-                        resultado = soma(valor1, valor2);
+                        resultadoTab = soma(valor1, valor2);
 
                         printf("|\t");
-                        printf(" %.0f + %.0f = %.0f", valor1, valor2, resultado);
+                        printf(" %.0f + %.0f = %.0f", valor1, valor2, resultadoTab);
                         printf("\t|\n");
                     }
 
@@ -90,10 +91,10 @@ void main()
                         valor1 = i;
                         valor2 = tabuada;
 
-                        resultado = subtracao(valor1, valor2);
+                        resultadoTab = subtracao(valor1, valor2);
 
                         printf("|\t");
-                        printf(" %.0f - %.0f = %.0f", valor1, valor2, resultado);
+                        printf(" %.0f - %.0f = %.0f", valor1, valor2, resultadoTab);
                         printf("\t|\n");
                     }
                     break;
@@ -106,9 +107,9 @@ void main()
                         valor1 = i;
                         valor2 = tabuada;
 
-                        resultado = multiplicacao(valor1, valor2);
+                        resultadoTab = multiplicacao(valor1, valor2);
                         printf("|\t");
-                        printf(" %.0f x %0.f = %.0f", valor1, valor2, resultado);
+                        printf(" %.0f x %0.f = %.0f", valor1, valor2, resultadoTab);
                         printf("\t|\n");
                     }
                     break;
@@ -121,12 +122,12 @@ void main()
                         valor1 = i;
                         valor2 = tabuada;
 
-                        resultado = divisao(valor1, valor2);
+                        resultadoTab = divisao(valor1, valor2);
 
                         if (i % tabuada == 0)
                         {
                             printf("|\t");
-                            printf(" %.0f : %.0f = %.0f", valor1, valor2, resultado);
+                            printf(" %.0f : %.0f = %.0f", valor1, valor2, resultadoTab);
                             printf("\t|\n");
                         }
                     }
@@ -152,142 +153,75 @@ void main()
         if (opcao == 2)
         {
 
-            // complito desse wlhile com o terceiro if...
             while (opcao2 == 1)
             {
                 //  PARTE DA CALCULADORA:
                 printf("#####################################################################################################\n");
+
                 // variaveis calculaddora
-                int tipo2, i, resto = 0, valor1r = 0, valor2r = 0, resR = 0, opcao2 = 1;
+                char tipoCal;
+                int i, pot = 1, opcao2 = 1;
                 float valor1, valor2, resultadoCal = 0;
-                int pot = 1, valor1p, valor2p;
 
-                printf("Escolha o tipo de operação:\n1.Soma\n2.Subtração\n3.Multiplicação\n4.Divisão\n5.Potenciação\n");
+                printf("Escolha o tipo de operação:\nOBS:\n+ --> Soma\n- --> Subtração\nx --> Multiplicação\n: --> Divisão\n^ --> Potenciação\n");
                 printf("#####################################################################################################\n");
-                scanf("%d", &tipo2);
+                scanf(" %[^\n]c", &tipoCal);
+                system("clear");
 
-                switch (tipo2)
+                // Interface do usuario da calculadora
+                printf("-->");
+                scanf("%f", &valor1);
+                printf("%c\n", tipoCal);
+                printf("-->");
+                scanf("%f", &valor2);
+                printf("\n");
+
+                switch (tipoCal)
                 {
 
-                case 1:
+                case '+':
 
-                    // INterface do usuario da calculadora
-                    printf("SOMA:\n");
-                    printf("-->");
-                    scanf("%f", &valor1);
-                    printf("mais\n");
-                    printf("-->");
-                    scanf("%f", &valor2);
-                    printf("\n");
-
-                    // realiza a operação de soma
-                    resultadoCal = valor1 + valor2;
+                    resultadoCal = soma(valor1, valor2);
 
                     printf(">>> %.2f + %.2f = %.2f\n", valor1, valor2, resultadoCal);
 
                     break;
 
-                case 2:
+                case '-':
 
-                    printf("SUBTRAÇÃO:\n");
-                    printf("-->");
-                    scanf("%f", &valor1);
-                    printf("menos\n");
-                    printf("-->");
-                    scanf("%f", &valor2);
-                    printf("\n");
-
-                    // Realiza a operação de subtração
-                    resultadoCal = valor1 - valor2;
+                    resultadoCal = subtracao(valor1, valor2);
 
                     printf(">>> %.2f - %.2f = %.2f\n", valor1, valor2, resultadoCal);
 
                     break;
 
-                case 3:
+                case 'x':
 
-                    printf("MULTIPLICAÇÃO:\n");
-                    printf("-->");
-                    scanf("%f", &valor1);
-                    printf("vezes\n");
-                    printf("-->");
-                    scanf("%f", &valor2);
-                    printf("\n");
-
-                    // Realiza a operação de multiplicação
-                    resultadoCal = valor1 * valor2;
+                    resultadoCal = multiplicacao(valor1, valor2);
 
                     printf(">>> %.2f x %.2f = %.2f\n", valor1, valor2, resultadoCal);
-                    printf("\n");
-                    printf("#########################################################################################\n");
-                    printf("OBS:\n");
-                    printf("Essa multiplicação é a mesma coisa que a soma de:\n");
-
-                    for (i = 1; i < valor2; i++)
-                    {
-
-                        printf(" %.2f + ", valor1);
-                    }
-
-                    printf("%.2f que é igual a %.2f\n", valor1, resultadoCal);
-
-                    printf("Como a multiplicação é comutativa o oposto também é válido: \n");
-
-                    for (i = 1; i < valor1; i++)
-                    {
-
-                        printf(" %.2f + ", valor2);
-                    }
-
-                    printf("%.2f que é igual a %.2f\n", valor2, resultadoCal);
-                    printf("#########################################################################################\n");
 
                     break;
 
-                case 4:
+                case ':':
 
-                    printf("DIVISÃO:\n");
-                    printf("-->");
-                    scanf("%f", &valor1);
-                    printf("dividido por\n");
-                    printf("-->");
-                    scanf("%f", &valor2);
-                    printf("\n");
-
-                    // Realiza a operação de divisão
-                    resultadoCal = valor1 / valor2;
+                    resultadoCal = divisao(valor1, valor2);
 
                     printf(">>> %.2f : %.2f = %.2f\n", valor1, valor2, resultadoCal);
 
                     break;
 
-                case 5:
+                case '^':
 
-                    printf("PONTENCIAÇÃO:\n");
-                    printf("OBS: INFORME UM NUMERO INTEIRO\n");
-                    printf("-->");
-                    scanf("%d", &valor1p);
-                    printf("OBS: INFORME O EXPOENTE UM INTEIRO POSITIVO...\n");
-                    printf("elevado a\n");
-                    printf("-->");
-                    scanf("%d", &valor2p);
-                    printf("\n");
-
-                    // Realiza a operação de potencia
-                    if (valor2p >= 0)
+                    if (resultadoCal == 0)
                     {
-                        for (i = 1; i <= valor2p; i++)
-                        {
-
-                            pot *= valor1p;
-                        }
-
-                        printf("%d elevado a %d é igual a %d\n", valor1p, valor2p, pot);
+                        printf("ERRO\n");
                     }
                     else
                     {
-                        printf("ERRO\n");
-                        printf("Essa calculadora só realiza operações com expoente inteiro positivo...\n");
+                        resultadoCal = potencia(valor1, valor2);
+
+                        printf(">>> %.0f ^ %.0f = %.0f\n", valor1, valor2, resultadoCal);
                     }
 
                     break;
@@ -302,6 +236,7 @@ void main()
                 printf("...........................................................................................................................\n");
                 scanf("%d", &opcao2);
                 system("clear");
+
                 if (opcao2 != 1)
                 {
                     break;
@@ -331,7 +266,7 @@ void main()
                 scanf("%d", &tipo3);
                 system("clear");
 
-                srand(time(NULL));
+                srand(time(NULL)); 
                 printf("::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::\n");
                 switch (tipo3)
                 {
@@ -632,4 +567,22 @@ float multiplicacao(float valor1, float valor2)
 float divisao(float valor1, float valor2)
 {
     return valor1 / valor2;
+}
+
+int potencia(float valor1, float valor2)
+{
+    int pot = 1;
+    if (valor2 >= 0)
+    {
+        for (int i = 1; i <= valor2; i++)
+        {
+
+            pot *= valor1;
+        }
+        return pot;
+    }
+    else
+    {
+        return 0;
+    }
 }
