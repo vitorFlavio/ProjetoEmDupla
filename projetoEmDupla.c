@@ -41,101 +41,81 @@ void main()
 
         if (opcao == 1)
         {
-            //TABUADA...
+            // TABUADA...
 
             while (opcao2 == 1)
             {
 
-                int valorTabuada, tabuada, tipoTab, opcao2 = 1;
+                int valorTabuada, tabuada, opcao2 = 1;
                 float resultadoTab;
                 float valor1 = 0, valor2 = 0;
-                
-                //Interface da tabuada
+                char tipoTab;
+
+                // Interface da tabuada
                 printf("######################################################################################################################\n");
+                printf("Escolha o tipo de operação:\n1.Soma.\n2.Subtração.\n3.Multiplicação.\n4.Divisão.\n");
+                scanf(" %[^\n]c", &tipoTab);
                 printf("Informe ate qual valor vc quer a execução da tabuada:\n");
                 scanf("%d", &valorTabuada);
-
                 printf("Informe a tabuada:\n");
                 scanf("%d", &tabuada);
 
-                printf("Escolha o tipo de operação:\n1.Soma.\n2.Subtração.\n3.Multiplicação.\n4.Divisão.\n");
                 printf("######################################################################################################################\n");
-                scanf("%d", &tipoTab);
+
                 system("clear");
 
-                switch (tipoTab)
+                printf("__________________________TABUADA %c DO %d________________________________\n\n", tipoTab, tabuada);
+
+                for (i = 0; i <= valorTabuada; i++)
                 {
+                    valor1 = i;
+                    valor2 = tabuada;
 
-                case 1:
-
-                    printf("__________________________TABUADA DA SOMA DO %d________________________________\n\n", tabuada);
-
-                    for (i = 0; i <= valorTabuada; i++)
+                    switch (tipoTab)
                     {
-                        valor1 = i;
-                        valor2 = tabuada;
+
+                    case '+':
 
                         resultadoTab = soma(valor1, valor2);
 
-                        printf("|\t");
-                        printf(" %.0f + %.0f = %.0f", valor1, valor2, resultadoTab);
-                        printf("\t|\n");
-                    }
+                        break;
 
-                    break;
-
-                case 2:
-
-                    printf("__________________________TABUADA DA SUBTRAÇÃO DO %d________________________________\n\n", tabuada);
-                    for (i = valorTabuada; i >= 0; i--)
-                    {
-                        valor1 = i;
-                        valor2 = tabuada;
+                    case '-':
 
                         resultadoTab = subtracao(valor1, valor2);
 
-                        printf("|\t");
-                        printf(" %.0f - %.0f = %.0f", valor1, valor2, resultadoTab);
-                        printf("\t|\n");
-                    }
-                    break;
+                        break;
 
-                case 3:
-
-                    printf("__________________________TABUADA DA MULTIPLICAÇÃO DO %d________________________________\n\n", tabuada);
-                    for (i = 0; i <= valorTabuada; i++)
-                    {
-                        valor1 = i;
-                        valor2 = tabuada;
+                    case 'x':
 
                         resultadoTab = multiplicacao(valor1, valor2);
-                        printf("|\t");
-                        printf(" %.0f x %0.f = %.0f", valor1, valor2, resultadoTab);
-                        printf("\t|\n");
-                    }
-                    break;
 
-                case 4:
+                        break;
 
-                    printf("__________________________TABUADA DA DIVISÃO INTEIRA DO %d________________________________\n\n", tabuada);
-                    for (i = valorTabuada; i >= 0; i--)
-                    {
-                        valor1 = i;
-                        valor2 = tabuada;
-
-                        resultadoTab = divisao(valor1, valor2);
+                    case ':':
 
                         if (i % tabuada == 0)
                         {
+                            resultadoTab = divisao(valor1, valor2);
                             printf("|\t");
-                            printf(" %.0f : %.0f = %.0f", valor1, valor2, resultadoTab);
+                            printf(" %.0f %c %.0f = %.0f", valor1, tipoTab, valor2, resultadoTab);
                             printf("\t|\n");
                         }
-                    }
-                    break;
+                        break;
 
-                default:
-                    break;
+                    default:
+                        break;
+                    }
+
+                    if (tipoTab == ':')
+                    {
+                    }
+                    else
+                    {
+                        printf("|\t");
+                        printf(" %.0f %c %.0f = %.0f", valor1, tipoTab, valor2, resultadoTab);
+                        printf("\t|\n");
+                    }
                 }
 
                 printf("\n\n");
@@ -153,16 +133,16 @@ void main()
         }
         if (opcao == 2)
         {
-            //CALCULADORA...
+            // CALCULADORA...
 
             while (opcao2 == 1)
             {
-                //variaveis da calculadora
+                // variaveis da calculadora
                 char tipoCal;
                 int i, pot = 1, opcao2 = 1;
                 float valor1, valor2, resultadoCal = 0;
 
-                //Interface da calculadora
+                // Interface da calculadora
                 printf("#####################################################################################################\n");
                 printf("Escolha o tipo de operação:\nOBS:\n+ --> Soma\n- --> Subtração\nx --> Multiplicação\n: --> Divisão\n^ --> Potenciação\n");
                 printf("#####################################################################################################\n");
@@ -245,7 +225,7 @@ void main()
         }
         if (opcao == 3)
         {
-            //MINI GAME...
+            // MINI GAME...
 
             while (opcao2 == 1)
             {
@@ -253,7 +233,7 @@ void main()
                 int tentativas, valorAleatorio, valorUsu, acertos = 0, erros = 0, opcao2 = 1;
                 char tipoGame;
 
-                //Interface do mini game
+                // Interface do mini game
                 printf("######################################################################################################################\n");
                 printf("Informe a quantidade de tentativas que você quer no mini game\n");
                 scanf("%d", &tentativas);
