@@ -29,7 +29,7 @@ void main()
     printf("=============================================================================================================\n");
     printf("\n");
 
-    printf("%s digite uma das opções abaixo:\n1.Tabuada\n2.Calculadora\n3.Mini Game\n4.Multiplicação de Matrizes\n0.Sair\n", nome);
+    printf("%s digite uma das opções abaixo:\n\n1.Tabuada\n2.Calculadora\n3.Mini Game\n4.Multiplicação de Matrizes\n0.Sair\n\n", nome);
     printf("=============================================================================================================\n");
     scanf("%d", &opcao);
     system("clear");
@@ -39,19 +39,19 @@ void main()
     {
         int opcao2 = 1;
 
-        // Outras opções seram adicionadas futuramente...
-
         if (opcao == 1)
         {
-            // PARTE DA TABUADA
+            //TABUADA...
+
             while (opcao2 == 1)
             {
 
                 int valorTabuada, tabuada, tipoTab, opcao2 = 1;
                 float resultadoTab;
                 float valor1 = 0, valor2 = 0;
-
-                printf("=============================================================================================================\n");
+                
+                //Interface da tabuada
+                printf("######################################################################################################################\n");
                 printf("Informe ate qual valor vc quer a execução da tabuada:\n");
                 scanf("%d", &valorTabuada);
 
@@ -59,15 +59,16 @@ void main()
                 scanf("%d", &tabuada);
 
                 printf("Escolha o tipo de operação:\n1.Soma.\n2.Subtração.\n3.Multiplicação.\n4.Divisão.\n");
-                printf("=============================================================================================================\n");
+                printf("######################################################################################################################\n");
                 scanf("%d", &tipoTab);
+                system("clear");
 
                 switch (tipoTab)
                 {
 
                 case 1:
 
-                    printf("__________________________TABUADA DA SOMA DO %d________________________________\n", tabuada);
+                    printf("__________________________TABUADA DA SOMA DO %d________________________________\n\n", tabuada);
 
                     for (i = 0; i <= valorTabuada; i++)
                     {
@@ -85,7 +86,7 @@ void main()
 
                 case 2:
 
-                    printf("__________________________TABUADA DA SUBTRAÇÃO DO %d________________________________\n", tabuada);
+                    printf("__________________________TABUADA DA SUBTRAÇÃO DO %d________________________________\n\n", tabuada);
                     for (i = valorTabuada; i >= 0; i--)
                     {
                         valor1 = i;
@@ -101,7 +102,7 @@ void main()
 
                 case 3:
 
-                    printf("__________________________TABUADA DA MULTIPLICAÇÃO DO %d________________________________\n", tabuada);
+                    printf("__________________________TABUADA DA MULTIPLICAÇÃO DO %d________________________________\n\n", tabuada);
                     for (i = 0; i <= valorTabuada; i++)
                     {
                         valor1 = i;
@@ -116,7 +117,7 @@ void main()
 
                 case 4:
 
-                    printf("__________________________TABUADA DA DIVISÃO INTEIRA DO %d________________________________\n", tabuada);
+                    printf("__________________________TABUADA DA DIVISÃO INTEIRA DO %d________________________________\n\n", tabuada);
                     for (i = valorTabuada; i >= 0; i--)
                     {
                         valor1 = i;
@@ -152,23 +153,22 @@ void main()
         }
         if (opcao == 2)
         {
+            //CALCULADORA...
 
             while (opcao2 == 1)
             {
-                //  PARTE DA CALCULADORA:
-                printf("#####################################################################################################\n");
-
-                // variaveis calculaddora
+                //variaveis da calculadora
                 char tipoCal;
                 int i, pot = 1, opcao2 = 1;
                 float valor1, valor2, resultadoCal = 0;
 
+                //Interface da calculadora
+                printf("#####################################################################################################\n");
                 printf("Escolha o tipo de operação:\nOBS:\n+ --> Soma\n- --> Subtração\nx --> Multiplicação\n: --> Divisão\n^ --> Potenciação\n");
                 printf("#####################################################################################################\n");
                 scanf(" %[^\n]c", &tipoCal);
                 system("clear");
 
-                // Interface do usuario da calculadora
                 printf("-->");
                 scanf("%f", &valor1);
                 printf("%c\n", tipoCal);
@@ -213,14 +213,14 @@ void main()
 
                 case '^':
 
+                    resultadoCal = potencia(valor1, valor2);
+
                     if (resultadoCal == 0)
                     {
                         printf("ERRO\n");
                     }
                     else
                     {
-                        resultadoCal = potencia(valor1, valor2);
-
                         printf(">>> %.0f ^ %.0f = %.0f\n", valor1, valor2, resultadoCal);
                     }
 
@@ -245,171 +245,98 @@ void main()
         }
         if (opcao == 3)
         {
+            //MINI GAME...
 
             while (opcao2 == 1)
             {
-                // IMPLEMENTAÇÃO DE UM MINI GAME...
-
                 // variaveis do mini game
+                int tentativas, valorAleatorio, valorUsu, acertos = 0, erros = 0, opcao2 = 1;
+                char tipoGame;
 
-                int n, v = 10, valorUsu, acertos = 0, erros = 0, tipo3, opcao2 = 1;
-                int valor1mini[n], valor2mini[n], resultado[n];
+                //Interface do mini game
                 printf("######################################################################################################################\n");
                 printf("Informe a quantidade de tentativas que você quer no mini game\n");
-                scanf("%d", &n);
+                scanf("%d", &tentativas);
                 printf("Informe ate qual valor vc deseja nas operações\n");
-                scanf("%d", &v);
+                scanf("%d", &valorAleatorio);
                 printf("\n");
-                printf("Informe o tipo de operação você deseja realizar\n");
-                printf("1.Soma.\n2.Subtração.\n3.Multiplicação.\n");
+                printf("Escolha o tipo de operação\n");
+                printf("OBS:\n+ --> Soma\n- --> Subtração\nx --> Multiplicação\n");
                 printf("######################################################################################################################\n");
-                scanf("%d", &tipo3);
+                scanf(" %[^\n]c", &tipoGame);
                 system("clear");
 
-                srand(time(NULL)); 
+                float valor1mini[tentativas], valor2mini[tentativas], resultado[tentativas];
+
+                srand(time(NULL));
+
                 printf("::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::\n");
-                switch (tipo3)
+
+                // Gerador de valores aleatorios
+                for (i = 0; i < tentativas; i++)
                 {
+                    valor1mini[i] = rand() % valorAleatorio;
+                    valor2mini[i] = rand() % valorAleatorio;
+                }
 
-                case 1:
+                for (i = 0; i < tentativas; i++)
+                {
+                    // respostas do usuario
+                    printf(">> Quanto é %.0f %c %.0f ?\n", valor1mini[i], tipoGame, valor2mini[i]);
+                    printf("Sua resposta: ");
+                    scanf("%d", &valorUsu);
 
-                    // realiza a operação de soma
-
-                    for (i = 0; i < n; i++)
+                    switch (tipoGame)
                     {
 
-                        valor1mini[i] = rand() % v;
-                        valor2mini[i] = rand() % v;
+                    case '+':
+
+                        resultado[i] = soma(valor1mini[i], valor2mini[i]);
+
+                        break;
+
+                    case '-':
+
+                        resultado[i] = subtracao(valor1mini[i], valor2mini[i]);
+
+                        break;
+
+                    case 'x':
+                        resultado[i] = multiplicacao(valor1mini[i], valor2mini[i]);
+
+                        break;
+
+                    default:
+                        break;
                     }
 
-                    for (i = 0; i < n; i++)
+                    if (resultado[i] == valorUsu)
                     {
-                        resultado[i] = valor1mini[i] + valor2mini[i];
-
-                        printf(">> Quanto é %d mais %d ?\n", valor1mini[i], valor2mini[i]);
-                        printf("Sua resposta: ");
-                        scanf("%d", &valorUsu);
-
-                        if (resultado[i] == valorUsu)
-                        {
-                            printf("\n");
-                            printf("PARABÉNS VOCÊ ACERTOU!!! :)\n");
-                            printf("\n");
-                            printf("::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::\n");
-                            acertos++;
-                        }
-                        else
-                        {
-                            printf("\n");
-                            printf("VOCÊ ERROU :(\n\n");
-                            printf("A resposta correta era %d", resultado[i]);
-                            printf("\n");
-                            printf("::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::\n");
-
-                            erros++;
-                        }
                         printf("\n");
-                    }
-
-                    break;
-
-                case 2:
-
-                    // realiza a subtração
-
-                    for (i = 0; i < n; i++)
-                    {
-
-                        valor1mini[i] = rand() % v;
-                        valor2mini[i] = rand() % v;
-                    }
-
-                    for (i = 0; i < n; i++)
-                    {
-
-                        printf(">> Quanto é %d menos %d ?\n", valor1mini[i], valor2mini[i]);
-                        scanf("%d", &valorUsu);
-
-                        resultado[i] = valor1mini[i] - valor2mini[i];
-
-                        if (resultado[i] == valorUsu)
-                        {
-
-                            printf("\n");
-                            printf("PARABÉNS VOCÊ ACERTOU!!! :)\n");
-                            printf("\n");
-                            printf("::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::\n");
-                            acertos++;
-                        }
-                        else
-                        {
-
-                            printf("\n");
-                            printf("VOCÊ ERROU :(\n\n");
-                            printf("A resposta correta era %d", resultado[i]);
-                            printf("\n");
-                            printf("::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::\n");
-
-                            erros++;
-                        }
+                        printf("PARABÉNS VOCÊ ACERTOU!!! :)\n");
                         printf("\n");
+                        printf("::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::\n");
+                        acertos++;
                     }
-
-                    break;
-
-                case 3:
-
-                    // Realiza a operação de multiplicação
-
-                    for (i = 0; i < n; i++)
+                    else
                     {
-
-                        valor1mini[i] = rand() % v;
-                        valor2mini[i] = rand() % v;
-                    }
-
-                    for (i = 0; i < n; i++)
-                    {
-
-                        printf(">> Quanto é %d vezes %d ?\n", valor1mini[i], valor2mini[i]);
-                        scanf("%d", &valorUsu);
-
-                        resultado[i] = valor1mini[i] * valor2mini[i];
-
-                        if (resultado[i] == valorUsu)
-                        {
-
-                            printf("\n");
-                            printf("PARABÉNS VOCÊ ACERTOU!!! :)\n");
-                            printf("\n");
-                            printf("::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::\n");
-                            acertos++;
-                        }
-                        else
-                        {
-                            printf("\n");
-                            printf("VOCÊ ERROU :(\n\n");
-                            printf("A resposta correta era %d", resultado[i]);
-                            printf("\n");
-                            printf("::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::\n");
-
-                            erros++;
-                        }
                         printf("\n");
+                        printf("VOCÊ ERROU :(\n\n");
+                        printf("A resposta correta era %.0f", resultado[i]);
+                        printf("\n");
+                        printf("::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::\n");
+
+                        erros++;
                     }
-
-                    break;
-
-                default:
-                    break;
+                    printf("\n");
                 }
 
                 system("clear");
                 printf(":::::::::::::::::::::::::::::::::::::   PLACAR   ::::::::::::::::::::::::::::::::::::::::::::::\n");
                 printf("\n");
 
-                printf("Em %d tentativas você obteve:\n%d acertos\n%d erros\n", n, acertos, erros);
-                printf("\n:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::\n");
+                printf("Em %d tentativas você obteve:\n\n%d acertos\n%d erros\n", tentativas, acertos, erros);
+                printf("\n::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::\n");
 
                 printf("\n\n");
                 printf("...........................................................................................................................\n");
@@ -545,7 +472,6 @@ void main()
         printf("=============================================================================================================\n");
         scanf("%d", &opcao);
         system("clear");
-        printf("=============================================================================================================\n");
     }
 }
 
