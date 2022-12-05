@@ -53,7 +53,7 @@ void main()
 
                 // Interface da tabuada
                 printf("######################################################################################################################\n");
-                printf("Escolha o tipo de operação:\n1.Soma.\n2.Subtração.\n3.Multiplicação.\n4.Divisão.\n");
+                printf("Escolha o tipo de operação:\nOBS:\n+ --> Soma\n- --> Subtração\nx --> Multiplicação\n: --> Divisão\n");
                 scanf(" %[^\n]c", &tipoTab);
                 printf("Informe ate qual valor vc quer a execução da tabuada:\n");
                 scanf("%d", &valorTabuada);
@@ -163,15 +163,11 @@ void main()
 
                     resultadoCal = soma(valor1, valor2);
 
-                    printf(">>> %.2f + %.2f = %.2f\n", valor1, valor2, resultadoCal);
-
                     break;
 
                 case '-':
 
                     resultadoCal = subtracao(valor1, valor2);
-
-                    printf(">>> %.2f - %.2f = %.2f\n", valor1, valor2, resultadoCal);
 
                     break;
 
@@ -179,15 +175,11 @@ void main()
 
                     resultadoCal = multiplicacao(valor1, valor2);
 
-                    printf(">>> %.2f x %.2f = %.2f\n", valor1, valor2, resultadoCal);
-
                     break;
 
                 case ':':
 
                     resultadoCal = divisao(valor1, valor2);
-
-                    printf(">>> %.2f : %.2f = %.2f\n", valor1, valor2, resultadoCal);
 
                     break;
 
@@ -195,7 +187,15 @@ void main()
 
                     resultadoCal = potencia(valor1, valor2);
 
-                    if (resultadoCal == 0)
+                    break;
+
+                default:
+                    break;
+                }
+
+                if (tipoCal == '^')
+                {
+                    if (valor2 < 0)
                     {
                         printf("ERRO\n");
                     }
@@ -203,11 +203,10 @@ void main()
                     {
                         printf(">>> %.0f ^ %.0f = %.0f\n", valor1, valor2, resultadoCal);
                     }
-
-                    break;
-
-                default:
-                    break;
+                }
+                else
+                {
+                    printf(">>> %.2f %c %.2f = %.2f\n", valor1, tipoCal, valor2, resultadoCal);
                 }
 
                 printf("\n\n");
