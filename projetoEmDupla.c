@@ -310,6 +310,7 @@ void main()
                         break;
                     }
 
+                    // verficação do resultado
                     if (resultado[i] == valorUsu)
                     {
                         printf("\n");
