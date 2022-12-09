@@ -193,8 +193,12 @@ void main()
                     break;
                 }
 
-                if (tipoCal == '^')
+                if (tipoCal == ':' && valor2==0)
                 {
+                    printf("Não existe divisão por zero\n");
+                }else if (tipoCal == '^')
+                {
+                
                     if (valor2 < 0)
                     {
                         printf("ERRO\n");
