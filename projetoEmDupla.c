@@ -139,7 +139,7 @@ void main()
 
                 int tipoOperacao = 0, opcao2 = 1;
                 char tipoCal;
-                char tipoMat;
+                
 
                 printf("######################################################################################################################\n");
                 printf("Escolha a opção abaixo\n");
@@ -229,15 +229,20 @@ void main()
                     
                 }
                 if (tipoOperacao == 2)
-                {
-                    int linhaA, colunaA, linhaB, colunaB, i, j, k;
 
+                {
+                    char tipoMat;
+                    
                     printf("#####################################################################################################\n");
                     printf("Escolha o tipo de operação:\nOBS:\n+ --> Soma\n- --> Subtração\nx --> Multiplicação\n");
                     printf("#####################################################################################################\n");
-                    sscanf(" %[^\n]c", &tipoMat);
+                    scanf(" %[^\n]c", &tipoMat);
                     system("clear");
 
+
+                    int linhaA, colunaA, linhaB, colunaB, i, j, k;
+
+                   
                     printf("######################################################################################################################\n");
                     printf("Informe a quntidade de linhas da matriz A : ");
                     scanf("%d", &linhaA);
