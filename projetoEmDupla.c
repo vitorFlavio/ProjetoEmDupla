@@ -150,6 +150,7 @@ void main()
 
                 if (tipoOperacao == 1)
                 {
+                   
                     // variaveis da calculadora
                     int i, pot = 1;
                     float valor1, valor2, resultadoCal = 0;
@@ -225,19 +226,17 @@ void main()
                     {
                         printf(">>> %.2f %c %.2f = %.2f\n", valor1, tipoCal, valor2, resultadoCal);
                     }
+                    
                 }
                 if (tipoOperacao == 2)
                 {
-                    
+                    int linhaA, colunaA, linhaB, colunaB, i, j, k;
 
                     printf("#####################################################################################################\n");
                     printf("Escolha o tipo de operação:\nOBS:\n+ --> Soma\n- --> Subtração\nx --> Multiplicação\n");
                     printf("#####################################################################################################\n");
-                    scanf("%c", &tipoMat);
+                    sscanf(" %[^\n]c", &tipoMat);
                     system("clear");
-
-                    int linhaA, colunaA, linhaB, colunaB, i, j, k;
-                    float matrizA[linhaA][colunaA], matrizB[linhaB][colunaB], aux = 0;
 
                     printf("######################################################################################################################\n");
                     printf("Informe a quntidade de linhas da matriz A : ");
@@ -250,6 +249,8 @@ void main()
                     scanf("%d", &colunaB);
                     printf("######################################################################################################################\n");
                     system("clear");
+
+                    float matrizA[linhaA][colunaA], matrizB[linhaB][colunaB], aux = 0;
 
                     if (colunaA == linhaB)
                     {
@@ -281,35 +282,33 @@ void main()
                         printf("Nao ha com multiplicar as matrizes dadas :(");
                     }
 
-                        operacoesMatrizes(tipoMat, linhaA, colunaA, linhaB, colunaB, matrizA, matrizB);
+                    operacoesMatrizes(tipoMat, linhaA, colunaA, linhaB, colunaB, matrizA, matrizB);
 
-                    
+                    /* switch (tipoMat)
+                     {
 
-                   /* switch (tipoMat)
-                    {
+                     case '+':
 
-                    case '+':
+                         operacoesMatrizes(tipoMat, linhaA, colunaA, linhaB, colunaB, matrizA, matrizB);
 
-                        operacoesMatrizes(tipoMat, linhaA, colunaA, linhaB, colunaB, matrizA, matrizB);
+                         break;
 
-                        break;
+                     case '-':
 
-                    case '-':
+                         operacoesMatrizes(tipoMat, linhaA, colunaA, linhaB, colunaB, matrizA, matrizB);
 
-                        operacoesMatrizes(tipoMat, linhaA, colunaA, linhaB, colunaB, matrizA, matrizB);
+                         break;
 
-                        break;
+                     case 'x':
 
-                    case 'x':
+                         operacoesMatrizes(tipoMat, linhaA, colunaA, linhaB, colunaB, matrizA, matrizB);
 
-                        operacoesMatrizes(tipoMat, linhaA, colunaA, linhaB, colunaB, matrizA, matrizB);
+                         break;
 
-                        break;
-
-                    default:
-                        break;
-                    }
-                    */
+                     default:
+                         break;
+                     }
+                     */
                 }
 
                 printf("\n\n");
