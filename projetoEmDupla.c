@@ -17,6 +17,9 @@ void main()
     char nome[99];
     int opcao = 1, i;
 
+    FILE *arquivo;
+    arquivo = fopen("pontuacao.txt", "a+");
+
     // Interface
     printf("=============================================================================================================\n");
     printf("..............................................PROGRAMA DE OPERAÇÕES.........................................\n");
@@ -30,7 +33,7 @@ void main()
     printf("=============================================================================================================\n");
     printf("\n");
 
-    printf("%s digite uma das opções abaixo:\n\n1.Tabuada\n2.Calculadora\n3.Mini Game\n4.Multiplicação de Matrizes\n0.Sair\n\n", nome);
+    printf("%s digite uma das opções abaixo:\n\n1.Tabuada\n2.Calculadora\n3.Mini Game\n0.Sair\n\n", nome);
     printf("=============================================================================================================\n");
     scanf("%d", &opcao);
     system("clear");
@@ -96,9 +99,10 @@ void main()
                         if (i % tabuada == 0)
                         {
                             resultadoTab = divisao(valor1, valor2);
-                            printf("|\t");
-                            printf(" %.0f %c %.0f = %.0f", valor1, tipoTab, valor2, resultadoTab);
-                            printf("\t|\n");
+
+                            printf(arquivo, "|\t");
+                            printf(arquivo, " %.0f %c %.0f = %.0f", valor1, tipoTab, valor2, resultadoTab);
+                            printf(arquivo, "\t|\n");
                         }
                         break;
 
@@ -111,9 +115,9 @@ void main()
                     }
                     else
                     {
-                        printf("|\t");
-                        printf(" %.0f %c %.0f = %.0f", valor1, tipoTab, valor2, resultadoTab);
-                        printf("\t|\n");
+                        printf(arquivo, "|\t");
+                        printf(arquivo, " %.0f %c %.0f = %.0f", valor1, tipoTab, valor2, resultadoTab);
+                        printf(arquivo, "\t|\n");
                     }
                 }
 
@@ -282,7 +286,7 @@ void main()
                     }
                     else if (linhaA == linhaB && colunaA == colunaB)
                     {
-                         operacoesMatrizes(tipoMat, linhaA, colunaA, linhaB, colunaB, matrizA, matrizB);
+                        operacoesMatrizes(tipoMat, linhaA, colunaA, linhaB, colunaB, matrizA, matrizB);
                     }
                     else
                     {
@@ -312,6 +316,7 @@ void main()
                 // variaveis do mini game
                 int tentativas, valorAleatorio, valorUsu, acertos = 0, erros = 0, opcao2 = 1;
                 char tipoGame;
+                int pontuacao = 0, salvar, historico;
 
                 // Interface do mini game
                 printf("######################################################################################################################\n");
@@ -392,12 +397,44 @@ void main()
                     printf("\n");
                 }
 
+                pontuacao = (acertos * valorAleatorio) / tentativas;
+
                 system("clear");
                 printf(":::::::::::::::::::::::::::::::::::::   PLACAR   ::::::::::::::::::::::::::::::::::::::::::::::\n");
                 printf("\n");
 
                 printf("Em %d tentativas você obteve:\n\n%d acertos\n%d erros\n", tentativas, acertos, erros);
+                printf("%s sua pontuação total foi: %d", nome, pontuacao);
                 printf("\n::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::\n");
+                printf("\n\n");
+
+                printf("...........................................................................................................................\n");
+                printf("Deseja salvar sua pontuação?\n");
+                printf("1.sim\n2.Não\n");
+                scanf("%d", &salvar);
+                printf("...........................................................................................................................\n");
+                system("clear");
+
+                if (salvar == 1)
+                {
+                    fprintf(arquivo, "%s %d\n", nome, pontuacao);
+                }
+
+                printf("...........................................................................................................................\n");
+                printf("Deseja ver o historico pontuação?\n");
+                printf("1.sim\n2.Não\n");
+                scanf("%d", &historico);
+                printf("...........................................................................................................................\n");
+                system("clear");
+
+                if (historico == 1)
+                {
+                    while (!feof(arquivo))
+                    {
+                        fscanf(arquivo, "%s %d\n", nome, &pontuacao);
+                        printf("%s %d\n", nome, pontuacao);
+                    }
+                }
 
                 printf("\n\n");
                 printf("...........................................................................................................................\n");
@@ -412,10 +449,11 @@ void main()
                 }
             }
         }
+        fclose(arquivo);
 
         printf("\n");
         printf("=============================================================================================================\n");
-        printf("%s digite uma das opções abaixo:\n1.Tabuada\n2.Calculadora\n3.Mini Game\n4.Multiplicação de Matrizes\n0.Sair\n", nome);
+        printf("%s digite uma das opções abaixo:\n1.Tabuada\n2.Calculadora\n3.Mini Game\n0.Sair\n", nome);
         printf("=============================================================================================================\n");
         scanf("%d", &opcao);
         system("clear");
