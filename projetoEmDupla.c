@@ -92,7 +92,7 @@ void main()
 
                         resultadoTab = multiplicacao(valor1, valor2);
 
-                        break;
+                        break; 
 
                     case ':':
 
@@ -100,9 +100,9 @@ void main()
                         {
                             resultadoTab = divisao(valor1, valor2);
 
-                            printf(arquivo, "|\t");
-                            printf(arquivo, " %.0f %c %.0f = %.0f", valor1, tipoTab, valor2, resultadoTab);
-                            printf(arquivo, "\t|\n");
+                            printf("|\t");
+                            printf(" %.0f %c %.0f = %.0f", valor1, tipoTab, valor2, resultadoTab);
+                            printf("\t|\n");
                         }
                         break;
 
@@ -115,9 +115,9 @@ void main()
                     }
                     else
                     {
-                        printf(arquivo, "|\t");
-                        printf(arquivo, " %.0f %c %.0f = %.0f", valor1, tipoTab, valor2, resultadoTab);
-                        printf(arquivo, "\t|\n");
+                        printf("|\t");
+                        printf(" %.0f %c %.0f = %.0f", valor1, tipoTab, valor2, resultadoTab);
+                        printf("\t|\n");
                     }
                 }
 
