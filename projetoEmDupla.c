@@ -92,7 +92,7 @@ void main()
 
                         resultadoTab = multiplicacao(valor1, valor2);
 
-                        break;
+                        break; 
 
                     case ':':
 
@@ -100,9 +100,9 @@ void main()
                         {
                             resultadoTab = divisao(valor1, valor2);
 
-                            printf(arquivo, "|\t");
-                            printf(arquivo, " %.0f %c %.0f = %.0f", valor1, tipoTab, valor2, resultadoTab);
-                            printf(arquivo, "\t|\n");
+                            printf("|\t");
+                            printf(" %.0f %c %.0f = %.0f", valor1, tipoTab, valor2, resultadoTab);
+                            printf("\t|\n");
                         }
                         break;
 
@@ -115,9 +115,9 @@ void main()
                     }
                     else
                     {
-                        printf(arquivo, "|\t");
-                        printf(arquivo, " %.0f %c %.0f = %.0f", valor1, tipoTab, valor2, resultadoTab);
-                        printf(arquivo, "\t|\n");
+                        printf("|\t");
+                        printf(" %.0f %c %.0f = %.0f", valor1, tipoTab, valor2, resultadoTab);
+                        printf("\t|\n");
                     }
                 }
 
@@ -286,6 +286,29 @@ void main()
                     }
                     else if (linhaA == linhaB && colunaA == colunaB)
                     {
+                        printf("::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::\n");
+                        for (i = 0; i < linhaA; i++)
+                        {
+                            for (j = 0; j < colunaA; j++)
+                            {
+                                printf("\n\n Informe o valor da %d Linha e da %d Coluna da Matriz A: ", i + 1, j + 1);
+                                scanf("%f", &matrizA[i][j]);
+                            }
+                        }
+
+                        printf("\n\n");
+
+                        for (i = 0; i < linhaB; i++)
+                        {
+                            for (j = 0; j < colunaB; j++)
+                            {
+                                printf("\n\n Informe o valor da %d Linha e da %d Coluna da  Matriz B: ", i + 1, j + 1);
+                                scanf("%f", &matrizB[i][j]);
+                            }
+                        }
+                        printf("::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::\n");
+                        system("clear");
+                        
                         operacoesMatrizes(tipoMat, linhaA, colunaA, linhaB, colunaB, matrizA, matrizB);
                     }
                     else
