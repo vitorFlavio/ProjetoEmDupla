@@ -1,7 +1,32 @@
-vitor 1
-vitor 10
-vitor 10
-vitor 10
-vitor 10
-maria 1
-pedro 0
+-------------------------------------------------Placar de Pontuação---------------------------------------------------------------
+
+Dados do jogador : fulano
+Cpf : 123
+Idade : 55
+Pontuação total : 20
+
+Dados do jogador : ciclano
+Cpf : 321
+Idade : 31
+Pontuação total : 20
+
+Dados do jogador : A
+Cpf : 111
+Idade : 111
+Pontuação total : 40
+
+Dados do jogador : B
+Cpf : 222
+Idade : 222
+Pontuação total : 20
+
+Dados do jogador : c
+Cpf : 33
+Idade : 33
+Pontuação total : 40
+
+Dados do jogador : d
+Cpf : 4
+Idade : 4
+Pontuação total : 60
+
