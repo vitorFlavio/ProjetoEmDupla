@@ -1,2 +1,12 @@
-marta 20
-loura 10
+-------------------------------------------------Placar de Pontuação---------------------------------------------------------------
+
+Dados do jogador : fulano
+Cpf : 123
+Idade : 55
+Pontuação total : 20
+
+Dados do jogador : ciclano
+Cpf : 321
+Idade : 31
+Pontuação total : 20
+
