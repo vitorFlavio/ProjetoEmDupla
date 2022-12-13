@@ -10,3 +10,13 @@ Cpf : 321
 Idade : 31
 Pontuação total : 20
 
+Dados do jogador : A
+Cpf : 111
+Idade : 111
+Pontuação total : 40
+
+Dados do jogador : B
+Cpf : 222
+Idade : 222
+Pontuação total : 20
+
