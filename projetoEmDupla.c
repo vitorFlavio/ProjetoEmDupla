@@ -28,6 +28,9 @@ void main()
     FILE *arquivo;
     arquivo = fopen("pontuacao.txt", "a+");
 
+    FILE *historicoTab;
+    historicoTab = fopen("historico.txt", "a+");
+
     // Interface
     printf("=============================================================================================================\n");
     printf("..............................................PROGRAMA DE OPERAÇÕES.........................................\n");
@@ -232,11 +235,13 @@ void main()
                         else
                         {
                             printf(">>> %.0f ^ %.0f = %.0f\n", valor1, valor2, resultadoCal);
+                            fprintf(historicoTab,"%.0f\n",resultadoCal);
                         }
                     }
                     else
                     {
                         printf(">>> %.2f %c %.2f = %.2f\n", valor1, tipoCal, valor2, resultadoCal);
+                        fprintf(historicoTab,"%.2f\n",resultadoCal);
                     }
                 }
                 if (tipoOperacao == 2)
@@ -400,6 +405,7 @@ void main()
                     fflush(stdin);
                     printf("######################################################################################################################\n");
                     getchar();
+                    system("clear");
                 }
 
                 printf("::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::\n");
@@ -486,7 +492,7 @@ void main()
 
                     if (salvar == 1)
                     {
-                        fprintf(arquivo, "%s %d\n", vetCadastro[i].nomeJogador, pontuacao[i]);
+                        fprintf(arquivo, "Dados do jogador : %s\nCpf : %d\nIdade : %d\nPontuação total : %d\n\n", vetCadastro[i].nomeJogador, vetCadastro[i].cpf, vetCadastro[i].idade, pontuacao[i]);
                     }
 
                     acertos = 0;
@@ -526,23 +532,27 @@ void main()
                         }
                     }
                 }
+                /*
+                    printf("...........................................................................................................................\n");
+                    printf("Deseja ver o historico pontuação?\n");
+                    printf("1.sim\n2.Não\n");
+                    scanf("%d", &historico);
+                    printf("...........................................................................................................................\n");
+                    system("clear");
 
-                printf("...........................................................................................................................\n");
-                printf("Deseja ver o historico pontuação?\n");
-                printf("1.sim\n2.Não\n");
-                scanf("%d", &historico);
-                printf("...........................................................................................................................\n");
-                system("clear");
-
-                if (historico == 1)
-                {
-                    while (!feof(arquivo))
+                    if (historico == 1)
                     {
-                        fscanf(arquivo, "%s %d\n", vetCadastro[indice].nomeJogador, &pontuacao[indice]);
-                        printf("%s %d\n", vetCadastro[indice].nomeJogador, pontuacao[indice]);
-                        indice++;
+
+                            while (!feof(arquivo))
+                            {
+                                fscanf(arquivo, "                   %s\n      %d\n        %d\n                  %d\n\n", vetCadastro[indice].nomeJogador, &vetCadastro[indice].cpf, &vetCadastro[indice].idade, &pontuacao[indice]);
+                                printf(arquivo, "Dados do jogador : %s\nCpf : %d\nIdade : %d\nPontuação total : %d\n\n", vetCadastro[indice].nomeJogador, vetCadastro[indice].cpf, vetCadastro[indice].idade, pontuacao[indice]);
+                                indice++;
+                            }
+
+
                     }
-                }
+                    */
 
                 printf("\n\n");
                 printf("...........................................................................................................................\n");
