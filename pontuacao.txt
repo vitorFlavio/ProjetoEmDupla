@@ -20,3 +20,13 @@ Cpf : 222
 Idade : 222
 Pontuação total : 20
 
+Dados do jogador : c
+Cpf : 33
+Idade : 33
+Pontuação total : 40
+
+Dados do jogador : d
+Cpf : 4
+Idade : 4
+Pontuação total : 60
+
