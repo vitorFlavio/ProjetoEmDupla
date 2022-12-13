@@ -3,6 +3,14 @@
 #include <time.h>
 #include <string.h>
 
+typedef struct
+{
+    char nomeJogador[99];
+    int cpf;
+    int idade;
+
+} cadastro;
+
 float soma(float valor1, float valor2);
 float subtracao(float valor1, float valor2);
 float multiplicacao(float valor1, float valor2);
@@ -25,8 +33,9 @@ void main()
     printf("..............................................PROGRAMA DE OPERAÇÕES.........................................\n");
     printf("...................................................BEM VINDO................................................\n");
     printf("=============================================================================================================\n");
+    printf("\n\n\n");
 
-    printf("Qual o seu nome?\n");
+    printf(">>> Qual o seu nome?\n");
     scanf(" %[^\n]s", &nome);
     fflush(stdin);
     system("clear");
@@ -66,7 +75,7 @@ void main()
                 scanf("%d", &tabuada);
                 system("clear");
 
-                printf("__________________________TABUADA %c DO %d________________________________\n\n", tipoTab, tabuada);
+                printf("__________________________TABUADA DA %c DO %d________________________________\n\n", tipoTab, tabuada);
 
                 for (i = 0; i <= valorTabuada; i++)
                 {
@@ -92,7 +101,7 @@ void main()
 
                         resultadoTab = multiplicacao(valor1, valor2);
 
-                        break; 
+                        break;
 
                     case ':':
 
@@ -308,7 +317,7 @@ void main()
                         }
                         printf("::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::\n");
                         system("clear");
-                        
+
                         operacoesMatrizes(tipoMat, linhaA, colunaA, linhaB, colunaB, matrizA, matrizB);
                     }
                     else
@@ -339,9 +348,24 @@ void main()
                 // variaveis do mini game
                 int tentativas, valorAleatorio, valorUsu, acertos = 0, erros = 0, opcao2 = 1;
                 char tipoGame;
-                int pontuacao = 0, salvar, historico;
+                int salvar, historico, j, y, maiorPontuacao, empate = 0;
+                int quantJogadores, indice = 0;
 
                 // Interface do mini game
+
+                printf("=============================================================================================================\n");
+                printf("...................................................BEM VINDO............................................\n");
+                printf("......................................................AO................................................\n");
+                printf("...................................................MINI GAME............................................\n");
+                printf("=============================================================================================================\n");
+                printf("\n\n\n");
+
+                printf(">>> Informe a quantidade de jogadores que irão participar: ");
+                scanf("%d", &quantJogadores);
+                system("clear");
+
+                cadastro vetCadastro[quantJogadores];
+
                 printf("######################################################################################################################\n");
                 printf("Informe a quantidade de tentativas que você quer no mini game\n");
                 scanf("%d", &tentativas);
@@ -353,94 +377,154 @@ void main()
                 printf("######################################################################################################################\n");
                 scanf(" %[^\n]c", &tipoGame);
                 system("clear");
+                getchar();
 
+                tentativas *quantJogadores;
+
+                int pontuacao[quantJogadores];
                 float valor1mini[tentativas], valor2mini[tentativas], resultado[tentativas];
 
                 srand(time(NULL));
 
+                for (int k = 0; k < quantJogadores; k++)
+                {
+                    printf("######################################################################################################################\n");
+                    printf("Cadastro do %d° jogador\n", (k + 1));
+                    printf("Nome:\n");
+                    scanf("%[^\n]s", vetCadastro[k].nomeJogador);
+                    fflush(stdin);
+                    printf("Cpf:\n");
+                    scanf("%d", &vetCadastro[k].cpf);
+                    printf("Idade:\n");
+                    scanf("%d", &vetCadastro[k].idade);
+                    fflush(stdin);
+                    printf("######################################################################################################################\n");
+                    getchar();
+                }
+
                 printf("::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::\n");
 
                 // Gerador de valores aleatorios
-                for (i = 0; i < tentativas; i++)
+
+                for (i = 0; i < quantJogadores; i++)
                 {
-                    valor1mini[i] = rand() % valorAleatorio;
-                    valor2mini[i] = rand() % valorAleatorio;
-                }
 
-                for (i = 0; i < tentativas; i++)
-                {
-                    // respostas do usuario
-                    printf(">> Quanto é %.0f %c %.0f ?\n", valor1mini[i], tipoGame, valor2mini[i]);
-                    printf("Sua resposta: ");
-                    scanf("%d", &valorUsu);
-
-                    switch (tipoGame)
+                    for (j = 0; j < tentativas; j++)
                     {
-
-                    case '+':
-
-                        resultado[i] = soma(valor1mini[i], valor2mini[i]);
-
-                        break;
-
-                    case '-':
-
-                        resultado[i] = subtracao(valor1mini[i], valor2mini[i]);
-
-                        break;
-
-                    case 'x':
-                        resultado[i] = multiplicacao(valor1mini[i], valor2mini[i]);
-
-                        break;
-
-                    default:
-                        break;
+                        valor1mini[j] = rand() % valorAleatorio;
+                        valor2mini[j] = rand() % valorAleatorio;
                     }
 
-                    // verficação do resultado
-                    if (resultado[i] == valorUsu)
+                    for (j = 0; j < tentativas; j++)
                     {
-                        printf("\n");
-                        printf("PARABÉNS VOCÊ ACERTOU!!! :)\n");
-                        printf("\n");
-                        printf("::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::\n");
-                        acertos++;
-                    }
-                    else
-                    {
-                        printf("\n");
-                        printf("VOCÊ ERROU :(\n\n");
-                        printf("A resposta correta era %.0f", resultado[i]);
-                        printf("\n");
-                        printf("::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::\n");
+                        // respostas do usuario
+                        printf(">> %s quanto é %.0f %c %.0f ?\n", vetCadastro[i].nomeJogador, valor1mini[j], tipoGame, valor2mini[j]);
+                        printf("Sua resposta: ");
+                        scanf("%d", &valorUsu);
 
-                        erros++;
+                        switch (tipoGame)
+                        {
+
+                        case '+':
+
+                            resultado[j] = soma(valor1mini[j], valor2mini[j]);
+
+                            break;
+
+                        case '-':
+
+                            resultado[j] = subtracao(valor1mini[j], valor2mini[j]);
+
+                            break;
+
+                        case 'x':
+                            resultado[j] = multiplicacao(valor1mini[j], valor2mini[j]);
+
+                            break;
+
+                        default:
+                            break;
+                        }
+
+                        // verficação do resultado
+                        if (resultado[j] == valorUsu)
+                        {
+                            printf("\n");
+                            printf("PARABÉNS VOCÊ ACERTOU!!! :)\n");
+                            printf("\n");
+                            printf("::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::\n");
+                            acertos++;
+                        }
+                        else
+                        {
+                            printf("\n");
+                            printf("VOCÊ ERROU :(\n\n");
+                            printf("A resposta correta era %.0f", resultado[j]);
+                            printf("\n");
+                            printf("::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::\n");
+
+                            erros++;
+                        }
+                        printf("\n");
                     }
+                    pontuacao[i] = (acertos * valorAleatorio) / (tentativas / quantJogadores);
+
+                    system("clear");
+                    printf(":::::::::::::::::::::::::::::::::::::   PLACAR   ::::::::::::::::::::::::::::::::::::::::::::::\n");
                     printf("\n");
+                    printf("%s em %d tentativas você obteve:\n\n%d acertos\n%d erros\n", vetCadastro[i].nomeJogador, tentativas, acertos, erros);
+                    printf("%s sua pontuação total foi: %d", vetCadastro[i].nomeJogador, pontuacao[i]);
+                    printf("\n::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::\n");
+                    printf("\n\n");
+
+                    printf("...........................................................................................................................\n");
+                    printf("%s deseja salvar sua pontuação?\n", vetCadastro[i].nomeJogador);
+                    printf("1.sim\n2.Não\n");
+                    scanf("%d", &salvar);
+                    printf("...........................................................................................................................\n");
+                    system("clear");
+
+                    if (salvar == 1)
+                    {
+                        fprintf(arquivo, "%s %d\n", vetCadastro[i].nomeJogador, pontuacao[i]);
+                    }
+
+                    acertos = 0;
+                    erros = 0;
                 }
 
-                pontuacao = (acertos * valorAleatorio) / tentativas;
+                maiorPontuacao = pontuacao[0];
 
-                system("clear");
-                printf(":::::::::::::::::::::::::::::::::::::   PLACAR   ::::::::::::::::::::::::::::::::::::::::::::::\n");
-                printf("\n");
-
-                printf("Em %d tentativas você obteve:\n\n%d acertos\n%d erros\n", tentativas, acertos, erros);
-                printf("%s sua pontuação total foi: %d", nome, pontuacao);
-                printf("\n::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::\n");
-                printf("\n\n");
-
-                printf("...........................................................................................................................\n");
-                printf("Deseja salvar sua pontuação?\n");
-                printf("1.sim\n2.Não\n");
-                scanf("%d", &salvar);
-                printf("...........................................................................................................................\n");
-                system("clear");
-
-                if (salvar == 1)
+                for (int x = 0; x < quantJogadores; x++)
                 {
-                    fprintf(arquivo, "%s %d\n", nome, pontuacao);
+                    if (pontuacao[x] > maiorPontuacao)
+                    {
+                        maiorPontuacao = pontuacao[x];
+                        empate = 0;
+                    }
+                    for (y = quantJogadores; y > x; y--)
+                        if (pontuacao[x] == pontuacao[y])
+                        {
+                            empate = 1;
+                        }
+                }
+
+                if (empate == 1)
+                {
+                    printf("Ocorreu empate.\n");
+                }
+                else
+                {
+
+                    for (int x = 0; x < quantJogadores; x++)
+                    {
+
+                        if (pontuacao[x] == maiorPontuacao)
+                        {
+                            printf("O ganhador foi %s\n", vetCadastro[x].nomeJogador);
+                            printf("Parabens!!\n");
+                        }
+                    }
                 }
 
                 printf("...........................................................................................................................\n");
@@ -454,8 +538,9 @@ void main()
                 {
                     while (!feof(arquivo))
                     {
-                        fscanf(arquivo, "%s %d\n", nome, &pontuacao);
-                        printf("%s %d\n", nome, pontuacao);
+                        fscanf(arquivo, "%s %d\n", vetCadastro[indice].nomeJogador, &pontuacao[indice]);
+                        printf("%s %d\n", vetCadastro[indice].nomeJogador, pontuacao[indice]);
+                        indice++;
                     }
                 }
 
@@ -466,13 +551,14 @@ void main()
                 scanf("%d", &opcao2);
                 system("clear");
 
+                fclose(arquivo);
+
                 if (opcao2 != 1)
                 {
                     break;
                 }
             }
         }
-        fclose(arquivo);
 
         printf("\n");
         printf("=============================================================================================================\n");

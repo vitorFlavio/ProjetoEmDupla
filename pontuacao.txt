@@ -1,7 +1,2 @@
-vitor 1
-vitor 10
-vitor 10
-vitor 10
-vitor 10
-maria 1
-pedro 0
+marta 20
+loura 10
