@@ -235,13 +235,13 @@ void main()
                         else
                         {
                             printf(">>> %.0f ^ %.0f = %.0f\n", valor1, valor2, resultadoCal);
-                            fprintf(historicoTab,"%.0f\n",resultadoCal);
+                            fprintf(historicoTab, "%.0f\n", resultadoCal);
                         }
                     }
                     else
                     {
                         printf(">>> %.2f %c %.2f = %.2f\n", valor1, tipoCal, valor2, resultadoCal);
-                        fprintf(historicoTab,"%.2f\n",resultadoCal);
+                        fprintf(historicoTab, "%.2f\n", resultadoCal);
                     }
                 }
                 if (tipoOperacao == 2)
